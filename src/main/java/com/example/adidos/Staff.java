@@ -10,7 +10,7 @@ public class Staff {
 	private Date staffBirthDate;
 	private String staffAddress; 
 	private String staffCity; 
-	private String staffPostcode; 
+	private int staffPostcode; 
 	private String staffState;
 	private String staffGender;
 	private String staffNationality;
@@ -76,11 +76,11 @@ public class Staff {
 		this.staffCity = staffCity;
 	}
 
-	public String getStaffPostcode() {
+	public int getStaffPostcode() {
 		return staffPostcode;
 	}
 
-	public void setStaffPostcode(String staffPostcode) {
+	public void setStaffPostcode(int staffPostcode) {
 		this.staffPostcode = staffPostcode;
 	}
 
