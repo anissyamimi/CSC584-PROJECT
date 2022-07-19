@@ -35,24 +35,10 @@ public class StaffDao {
     public void createStaff(Staff sta) throws SQLException {
 
         // try-with-resource statement will auto close the connection.
-/*staffID;
-staffName;
-staffPhone;
-staffEmail;
-staffBirthDate;
-staffAddress; 
-staffCity; 
-staffPostcode; 
-staffState;
-staffGender;
-staffNationality;
-staffMaritalStatus;
-staffReligion;
-staffPassword;*/
     	
         try (Connection con = getConnection();
              PreparedStatement ps = con.prepareStatement
-                     ("INSERT INTO STAFF(staffID,staffName,staffPhone,staffEmail,staffBirthDate,staffAddress,staffCity,staffPostcode,staffState,staffGender,staffNationality,staffMaritalStatus,staffReligion,staffPassword) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)"))
+                     ("INSERT INTO STAFF(staffID,staffName,staffPhone,staffEmail,staffBirthDate,staffAddress,staffCity,staffPostcode,staffState,staffGender,staffNationality,staffMaritalStatus,staffRace,staffPassword) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)"))
         {
             ps.setString(1, sta.getStaffID());
             ps.setString(2, sta.getStaffName());
@@ -66,7 +52,7 @@ staffPassword;*/
             ps.setString(10, sta.getStaffGender());
             ps.setString(11, sta.getStaffNationality());
             ps.setString(12, sta.getStaffMaritalStatus());
-            ps.setString(13, sta.getStaffReligion());
+            ps.setString(13, sta.getStaffRace());
             ps.setString(14, sta.getStaffPassword());
             out.println(ps);
             ps.executeUpdate();
@@ -76,31 +62,28 @@ staffPassword;*/
         }
     }
 
-    /*public boolean deleteCommittee (String committeeID) throws SQLException {
-        boolean rowDeleted;
-        try (Connection connection = getConnection();
-             PreparedStatement statement = connection.prepareStatement("DELETE FROM COMMITTEE WHERE COMMITTEEID=?");) {
-            statement.setString(1, committeeID);
-            rowDeleted = statement.executeUpdate() > 0;
-        }
-        return rowDeleted;
-    }
-    public boolean updateCommittee (Committee com) throws SQLException {
+    public boolean updateStaff (Staff sta) throws SQLException {
     	
     	boolean rowUpdated = true;
         // try-with-resource statement will auto close the connection.
         try (Connection con = getConnection();
              PreparedStatement ps = con.prepareStatement
-                     ("UPDATE committee set committeeName=?,committeePhoneNumber=?,committeeEmail=?,committeeAddress=?,committeeCity=?, committeePostcode=?, committeeState=? WHERE committeeID = ?");)
+                     ("UPDATE staff set staffName=?,staffPhone=?,staffEmail=?,staffBirthDate=?,staffAddress=?,staffCity=?,staffPostcode=?,staffState=?,staffGender=?,staffNationality=?,staffMaritalStatus=?,staffRace=?,staffPassword WHERE staffID = ?");)
         {
-        	ps.setString(1, com.getCommitteeName());
-            ps.setString(2, com.getCommitteePhoneNumber());
-            ps.setString(3, com.getCommitteeEmail());
-            ps.setString(4, com.getCommitteeAddress());
-            ps.setString(5, com.getCommitteeCity());
-            ps.setInt(6, com.getCommitteePostcode());
-            ps.setString(7, com.getCommitteeState());
-            ps.setString(8, com.getCommitteeID());
+            ps.setString(1, sta.getStaffName());
+            ps.setString(2, sta.getStaffPhone());
+            ps.setString(3, sta.getStaffEmail());
+            ps.setDate(4, sta.getStaffBirthDate());
+            ps.setString(5, sta.getStaffAddress());
+            ps.setString(6, sta.getStaffCity());
+            ps.setInt(7, sta.getStaffPostcode());
+            ps.setString(8, sta.getStaffState());
+            ps.setString(9, sta.getStaffGender());
+            ps.setString(10, sta.getStaffNationality());
+            ps.setString(11, sta.getStaffMaritalStatus());
+            ps.setString(12, sta.getStaffRace());
+            ps.setString(13, sta.getStaffPassword());
+            ps.setString(14, sta.getStaffID());
             
              //ps.executeUpdate();
              rowUpdated = ps.executeUpdate() > 0;        
@@ -111,5 +94,5 @@ staffPassword;*/
         }
         
         return rowUpdated;
-    }*/
+    }
 }

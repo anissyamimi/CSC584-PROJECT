@@ -15,7 +15,7 @@ public class Staff {
 	private String staffGender;
 	private String staffNationality;
 	private String staffMaritalStatus;
-	private String staffReligion;
+	private String staffRace;
 	private String staffPassword;
 
 	public Staff(){}
@@ -116,12 +116,12 @@ public class Staff {
 		this.staffMaritalStatus = staffMaritalStatus;
 	}
 
-	public String getStaffReligion() {
-		return staffReligion;
+	public String getStaffRace() {
+		return staffRace;
 	}
 
-	public void setStaffReligion(String staffReligion) {
-		this.staffReligion = staffReligion;
+	public void setStaffRace(String staffRace) {
+		this.staffRace = staffRace;
 	}
 
 	public String getStaffPassword() {

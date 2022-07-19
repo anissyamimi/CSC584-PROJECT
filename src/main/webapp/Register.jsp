@@ -14,33 +14,33 @@
 	<div id="myMain">
 	<div class='center'>
 	<div class="header">STAFF INFORMATION</div>
-      <form action="" name="myForm" method="post" onsubmit="return validation()">
+      <form action="" name="myForm" action="StaffHandler" method="post" onsubmit="return validation()">
       		<br>
             <label  for="staffName">Full Name <span>*</span></label>
             <input type="text" name="staffName" placeholder="Enter your full name">
             
             <br><br>
          	<label for="idno">Identification Number <span>*</span></label>
-			<input type="text" name="idno" id="idno" placeholder="Enter your mykad identification number (without -)">
+			<input type="text" name="staffID" id="staffID" placeholder="Enter your mykad identification number (without -)">
 			
 			<br><br>
 			<label for="phoneno">Phone Number <span>*</span></label>
-			<input type="text" name="phone" id="phoneno" placeholder="Enter your phone number (without -)">
+			<input type="text" name="staffPhone" id="staffPhone" placeholder="Enter your phone number (without -)">
 			
 			<br><br>
 			<label for="address">Address <span>*</span></label>
-			<input type="text" name="address" class="forInput" id="address" placeholder="Enter your address">
+			<input type="text" name="staffAddress" class="forInput" id="staffAddress" placeholder="Enter your address">
 			
 			<br><br>
 			<label for="city">City <span>*</span></label>
-			<input type="text" name="city" id="city" placeholder="Enter your city">
+			<input type="text" name="staffCity" id="staffCity" placeholder="Enter your city">
 			
 			<br><br>
 			<label for="postcode">Postcode <span>*</span></label>
-			<input type="text" name="postcode" id="postcode" placeholder="Enter your postcode">
+			<input type="text" name="staffPostcode" id="staffPostcode" placeholder="Enter your postcode">
 			
 			<label for="state">State <span>*</span></label>
-	      	<select name="state" id="state" class="forInput">
+	      	<select name="staffState" id="staffState" class="forInput">
 	          <option value="">--State--</option>
 	          <option value="Johor">Johor</option>
 	          <option value="Kedah">Kedah</option>
@@ -60,20 +60,20 @@
             
             <br>
             <label for="email">Email <span>*</span></label>
-            <input type="text" name="email" placeholder="Enter your email">
+            <input type="text" name="staffEmail" placeholder="Enter your email">
 			
 			<br><br>
 			<label for="birthday">Birth Date <span>*</span></label>
-	  		<input type="date" id="birthday" name="birthday">
+	  		<input type="date" id="staffBirthDate" name="staffBirthDate">
 	  		
 	  		<br><br>
-			<label for="gender" class="gender">Gender <span>*</span></label>
+			<label for="gender" class="staffGender">Gender <span>*</span></label>
 			<input type="radio" name="male" id="male" value="male">Male
 			<input type="radio" name="female" id="female" value="female" >Female
 			
 			<br><br><br>
 			<label for="MaritalStatus">Marital Status <span>*</span></label>
-	      	<select name="maritalstatus" id="maritalstatus">
+	      	<select name="staffMaritalstatus" id="staffMaritalstatus">
 	          <option value="">--Marital Status--</option>
 	          <option value="Single">Single</option>
 	          <option value="Married">Married</option>
@@ -83,17 +83,21 @@
 			
 			<br>
 			<label  for="race">Race <span>*</span></label>
-	  		<input type="text" id="race" name="race" placeholder="Enter your race">
+	  		<input type="text" id="stafface" name="staffRace" placeholder="Enter your race">
 	  		
 	  		<br><br>
 	  		<label for="nationality">Nationality <span>*</span></label>
-	  		<input type="text" id="nationality" name="nationality" placeholder="Enter your nationality">
+	  		<input type="text" id="staffNationality" name="staffNationality" placeholder="Enter your nationality">
 	  		
-	  		<br><br>
-	  		<label for="religion">Religion <span>*</span></label>
-	  		<input type="text" id="religion" name="religion" placeholder="Enter your religion">
+	  		<label for="nationality">Password <span>*</span></label>
+	  		<input type="password" id="psw1" name="staffPassword" placeholder= "Enter Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+			   title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+			   
+			<label for="nationality">Re-enter Password <span>*</span></label>
+			<input type="password" id="psw2" name="password" placeholder= "Re-Enter Password" required>
            
-            <button class="btn">NEXT</button>
+            <input type="hidden" name="action" value="createStaff">
+         <button type="submit" class="button2" name="submit" formaction="StaffHandler" onclick="matchPassword()" >REGISTER</button><br><br>
       </form>
     </div></div>
 </body>
@@ -234,5 +238,15 @@ function openNav() {
       document.getElementById("Sidebar").style.width = "0";
       document.getElementById("myMain").style.marginLeft= "0";
     }
+	function matchPassword(){
+		  var psw1 = document.getElementById("staffPassword");
+		  var psw2 = document.getElementById("password");
+		  if(psw1 != psw2){
+		  	alert("Passwords did not match");
+		  	return false;}
+		  else{
+		  	alert("Account created successfully");
+		  	return true;}
+	 }
 </script>
 </html>
