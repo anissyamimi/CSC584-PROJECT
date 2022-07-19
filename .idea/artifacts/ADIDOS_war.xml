@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ADIDOS:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>ADIDOS</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="ADIDOS-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="ADIDOS:war exploded" />
+    </root>
+  </artifact>
+</component>
