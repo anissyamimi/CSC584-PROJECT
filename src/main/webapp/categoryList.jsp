@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,6 +11,15 @@
         <title>List of category page</title>
     </head>
         <body>
+        <sql:setDataSource var="ic" driver="org.postgresql.Driver"
+                   url="jdbc:postgresql://ec2-44-206-197-71.compute-1.amazonaws.com/d5rq8o52eacr8k"
+                   user = "snzyojrrgmxiog"
+                   password="f97a885181429218179ab9db94ff4fc6ab7ef611657375b7e35dad06697b711c"/>
+		
+		<sql:query dataSource="${ic}" var="oc">
+		    SELECT categoryID,categoryName,categoryStatus from Category where categoryID>0
+		</sql:query>
+        
              <section class="header"><!-- SIDEBAR -->
             <div id="main">
                 <button class="openbtn" onclick="openNav()"><i class="fa fa-bars"></i></button>
@@ -34,26 +44,35 @@
             <input type="number" class="entries1" id="entries" name="entries">
             <span class="symbol">&#8645;</span>
             <span class="entries">ENTRIES</span>
-            <table id="store">
+            
+            <div style="overflow-x:auto;">
+            <table id="store" style="text-align: center;">
                 <tr>
-                  <th id="categoryID">CATEGORY ID <img src="filterW.png"></th>
-                  <th id="categoryName">CATEGORY NAME <img src="filterW.png"></th>
-                  <th id="categoryStatus">CATEGORY STATUS <img src="filterW.png"></th>
+                  <th onclick="sortTable(0)" id="categoryID">CATEGORY ID <img src="filterW.png"></th>
+                  <th onclick="sortTable(1)" id="categoryName">CATEGORY NAME <img src="filterW.png"></th>
+                  <th onclick="sortTable(2)" id="categoryStatus">CATEGORY STATUS <img src="filterW.png"></th>
                   <th>ACTION <img src="filterW.png"></th>
                 </tr>
+                
+                <c:forEach var="result" items="${oc.rows}">
                 <tr>
-                  <td>CAT001</td>
-                  <td>GAMING</td>
-                  <td><span class="status1">&#9679;</span>ACTIVE</td>
-                  <td class="action"><a href="updateCategory.jsp">&#128393;</a>
-                    <span class="popup" id="popup">
-                    <div class="overlay"></div>
-                        <div class="content">
-                                <div class="close-btn" onclick="togglePopup()">&times;</div>
-                                <span class="symbol1">&#128505;</span><h4>DELETE CATEGORY SUCCESS</h4>
-                        </div></span>
-                        <button class="action1" onclick="togglePopup()">&#128465;</button></td>
+                  <td class="categoryID"><c:out value="${result.categoryID}"/></td>
+                  <td class="categoryName"><c:out value="${result.categoryName}"/></td>
+                  <td class="categoryStatus"><c:out value="${result.categoryStatus}"/></td>
+                  
+                  <td>
+					<form method="post">
+						<button  class="action" type="update" formaction="updateCategory.jsp?id=${result.categoryID}">&#128393;
+						</button>
+					</form>
+					<form method="post">
+						<input type="hidden" name="categoryID" value="${result.categoryID}">
+						<input type="hidden" name="action" value="deleteCategory">
+						<button  class="action" type="delete" formaction="CategoryHandler" onclick="return confirm('Are you sure you want to delete?')">&#128505;</button>
+					</form>
+				</td>
                 </tr>
+                </c:forEach>
               </table>
               <br>
               <div class="respond">

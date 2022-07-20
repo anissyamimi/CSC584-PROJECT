@@ -27,7 +27,8 @@
         <h2>CREATE CATEGORY</h2>
         <form id="create" action="categoryList.jsp" method="post">
             <label for="categoryName">Category Name</label>
-            <input type="text" id="categoryname" name="categoryname"><br>
+            <input type="text" id="categoryName" name="categoryName"><br>
+            
             <label for="status" class="status">Status</label>
             <input type="checkbox" id="status1" name="status1">
             <label for="status1" class="space"><span class="status1">&#9679;</span>ACTIVE</label>
