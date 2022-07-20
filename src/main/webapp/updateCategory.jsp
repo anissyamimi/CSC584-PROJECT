@@ -1,5 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.Connection" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,6 +15,20 @@
         <title>update category page</title>
     </head>
     <body>
+    <%
+    Class.forName("org.postgresql.Driver");
+	String DB_CONNECTION = "jdbc:postgresql://ec2-44-206-197-71.compute-1.amazonaws.com/d5rq8o52eacr8k";
+	String DB_USER = "snzyojrrgmxiog";
+	String DB_PASSWORD ="f97a885181429218179ab9db94ff4fc6ab7ef611657375b7e35dad06697b711c";
+
+	String id=request.getParameter("id");
+    String sql= "SELECT * FROM category WHERE categoryID='"+ id +"'" ;
+    Connection con=DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
+    Statement stmt=con.createStatement();
+    ResultSet rs=stmt.executeQuery(sql);
+    while(rs.next())
+    {
+%>
       <section class="header"><!-- SIDEBAR -->
         <div id="main">
             <button class="openbtn" onclick="openNav()"><i class="fa fa-bars"></i></button>
@@ -26,22 +46,21 @@
 <div id="myMain">
         <h2>UPDATE CATEGORY</h2>
         <form id="create" action="" method="post" action="CategoryHandler">
+        
+        	<input type="hidden" name="categoryID" value='<%=rs.getString("categoryID") %>'/>
+    
             <label for="categoryName">Category Name</label>
-            <input type="text" id="categoryName" name="categoryName"><br>
+            <input type="text" id="categoryName" name="categoryName" value='<%=rs.getString("categoryName") %>'><br>
             
             <label for="status" class="status">Status</label>
-            
-            <input type="checkbox" id="status1" name="categoryStatus" value="ACTIVE">
-            <label for="status1" class="space"><span class="status1">&#9679;</span>ACTIVE</label>
-            
-            <input type="checkbox" id="status2" name="categoryStatus" value="INACTIVE">
-            <label for="status2"><span class="status2">&#9679;</span>INACTIVE</label>
+            <input type="text" id="status1" name="categoryStatus" value='<%=rs.getString("categoryStatus") %>'>
+        <%} %>
         </form></div>
         <div class="respond">
             <button class="btn">BACK</button>
             
             <input type="hidden" name="action" value="updateCategory">
-                <button class="btn" type="submit" formaction="CategoryHandler" onclick="return confirm('Are you sure you want to update?');">UPDATE CATEGORY</button>
+            <button class="btn" type="submit" formaction="CategoryHandler" onclick="return confirm('Are you sure you want to update?');">UPDATE CATEGORY</button>
         </div>
     </body>
     
