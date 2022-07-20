@@ -54,7 +54,7 @@ public class CategoryDao {
     public boolean deleteCategory(int id) throws SQLException {
         boolean rowDeleted;
         try (Connection connection = getConnection();
-             PreparedStatement statement = connection.prepareStatement("DELETE FROM category WHERE categoryID=?")) {
+             PreparedStatement statement = connection.prepareStatement("DELETE FROM category WHERE categoryID=?");) {
             statement.setInt(1, id);
             rowDeleted = statement.executeUpdate() > 0;
         }
