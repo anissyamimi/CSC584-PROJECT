@@ -101,6 +101,6 @@ public class CategoryHandler extends HttpServlet {
 
         cd.updateCategory(cat);
 
-        response.sendRedirect("donationList.jsp");
+        response.sendRedirect("categoryList.jsp");
     }
 }
