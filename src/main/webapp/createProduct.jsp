@@ -25,21 +25,32 @@
         </div></section><!-- SIDEBAR -->
 <div id="myMain">
         <h2>CREATE PRODUCT</h2>
-        <form id="create" action="" method="post">
+        <form id="create" action="ProductHandler" method="post">
             <label for="prodName">Product Name</label>
-            <input type="text" id="prodName" name="prodName"><br>
+            <input type="text" id="prodName" name="productname"><br>
             <label for="prodPrice" id="prodPrice">Product Price</label>
-            <input type="text" id="prodPrice" name="prodPrice"><br>
-            <label for="prodDescription">Product Description</label>
-            <input type="text" id="prodDescription" name="prodDescription"><br>
+            <input type="text" id="prodPrice" name="productprice"><br>
             <label for="prodColor">Product Color </label>
-            <input type="text" id="prodColor" name="prodColor"><br>
+            <input type="text" id="prodColor" name="productcolor"><br>
             <label for="prodQuantity">Product Quantity </label>
-            <input type="text" id="prodQuantity" name="prodQuantity"><br>
-        </form></div>
-        <div class="respond">
+            <input type="text" id="prodQuantity" name="productquantity"><br>
+            <label for="cars">Choose a car:</label>
+
+			<select name="productavailability" >
+			  <option value="Available">Available</option>
+			  <option value="Not Available">Not Available</option>
+			</select>
+			
+			<select name="categoryid">
+			  <option value="1">LEBOVO</option>
+			  <option value="2">DP</option>
+			</select>
+            <input type="hidden" name="action" value="createProduct">
             <button class="btn">BACK</button>
             <button class="btn">CREATE PRODUCT</button>
+        </form></div>
+        <div class="respond">
+
         </div>
     </body>
     
@@ -259,3 +270,5 @@
       
 </script>   
 </html>
+
+CREATE PRODUCT
