@@ -25,7 +25,7 @@
         </div></section><!-- SIDEBAR -->
 <div id="myMain">
         <h2>CREATE CATEGORY</h2>
-        <form id="create" action="categoryList.jsp" method="post">
+        <form id="create" action="categoryList.jsp" method="post" action="CategoryHandler">
             <label for="categoryName">Category Name</label>
             <input type="text" id="categoryName" name="categoryName"><br>
             
@@ -36,8 +36,10 @@
             <label for="status2"><span class="status2">&#9679;</span>INACTIVE</label>
         </form></div>
         <div class="respond">
-            <button class="btn">BACK</button>
-            <button class="btn">CREATE CATEGORY</button>
+        	<button class="btn">BACK</button>
+        	
+			<input type="hidden" name="action" value="createCategory">
+    		<button type="submit" class="btn" name="submit" formaction="CategoryHandler" >CREATE CATEGORY</button><br><br>
         </div>
     </body>
     
