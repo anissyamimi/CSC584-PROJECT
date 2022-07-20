@@ -1,3 +1,8 @@
+<%@page import="java.sql.ResultSet" %>
+<%@page import="java.sql.Statement" %>
+<%@page import="java.sql.DriverManager" %>
+<%@page import="java.sql.PreparedStatement" %>
+<%@page import="java.sql.Connection" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -8,6 +13,8 @@
         <script src="https://kit.fontawesome.com/9bff21277a.js"></script>
         <title>update product page</title>
     </head>
+    
+    
     <body>
       <section class="header"><!-- SIDEBAR -->
         <div id="main">
@@ -23,20 +30,57 @@
             <a href="MainPage.jsp" onclick="return confirm('Do you want to log out ?');"><i class="fa-solid fa-right-from-bracket"></i>   LOGOUT</a>
 
         </div></section><!-- SIDEBAR -->
-<div id="myMain">
+        
+        	<%
+    		String DB_DRIVER = "org.postgresql.Driver";
+        	String DB_CONNECTION = "jdbc:postgresql://ec2-44-206-197-71.compute-1.amazonaws.com/d5rq8o52eacr8k";
+    	    String DB_USER = "snzyojrrgmxiog";
+    	    String DB_PASSWORD = "f97a885181429218179ab9db94ff4fc6ab7ef611657375b7e35dad06697b711c";
+
+       Connection conn = null;
+       Statement stat = null;
+       ResultSet res = null;
+       PreparedStatement stmt = null;
+       Class.forName(DB_DRIVER).newInstance();
+       conn = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
+       %>
+		<div id="myMain">
         <h2>UPDATE PRODUCT</h2>
-        <form id="create" action="" method="post">
+        <form id="create" action="ProductHandler" method="post">       <%
+       stat = conn.createStatement();
+       String u = request.getParameter("id");
+       String data = "select * from product where productid='"+u+"'";
+       res = stat.executeQuery(data);
+       while(res.next()){
+       %>
+
             <label for="prodName">Product Name</label>
-            <input type="text" id="prodName" name="prodName"><br>
+            <input type="text" id="prodName" name="productname" value="<%=res.getString("productname")%>"><br>
             <label for="prodPrice" id="prodPrice">Product Price</label>
-            <input type="text" id="prodPrice" name="prodPrice"><br>
-            <label for="prodDescription">Product Description</label>
-            <input type="text" id="prodDescription" name="prodDescription"><br>
+            <input type="text" id="prodPrice" name="productprice" value="<%=res.getString("productprice")%>"><br>
             <label for="prodColor">Product Color </label>
-            <input type="text" id="prodColor" name="prodColor"><br>
+            <input type="text" id="prodColor" name="productcolor" value="<%=res.getString("productcolor")%>"><br>
             <label for="prodQuantity">Product Quantity </label>
-            <input type="text" id="prodQuantity" name="prodQuantity"><br>
+            <input type="text" id="prodQuantity" name="productquantity" value="<%=res.getString("productquantity")%>"><br>
+            <label for="cars">Choose a car:</label>
+
+			<select name="productavailability">
+			  <option value="Available">Available</option>
+			  <option value="Not Available">Not Available</option>
+			</select>
+			
+			<select name="categoryid">
+			  <option value="1">LEBOVO</option>
+			  <option value="2">DP</option>
+			</select>
+            <input type="hidden" name="action" value="updateProduct">
+            <button class="btn">BACK</button>
+            <button class="btn">CREATE PRODUCT</button>
         </form></div>
+        
+           	<%
+            }
+   			%>
         <div class="respond">
             <button class="btn">BACK</button>
             <button class="btn">UPDATE PRODUCT</button>

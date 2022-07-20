@@ -1,3 +1,6 @@
+package com.example.adidos;
+
+
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -50,12 +53,13 @@ public class ProductHandler extends HttpServlet {
                 case "createProduct":
                 	createProduct(request, response);
                     break;
+                case "updateProduct":
+                	updateProduct(request,response);
+                    break; 
                 /*case "deleteAnnouncement":
                     deleteAnnouncement(request,response);
                     break;
-                case "updateAnnouncement":
-                    updateAnnouncement(request,response);
-                    break;
+
                 case "cancel":
                     cancel(request, response);
                     break;*/
@@ -67,7 +71,13 @@ public class ProductHandler extends HttpServlet {
         }
 
     }
-    private void createProduct(HttpServletRequest request, HttpServletResponse response)
+    private void updateProduct(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private void createProduct(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
 
         String productname = request.getParameter("productname");

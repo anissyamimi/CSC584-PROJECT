@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
+<%@page import="java.sql.DriverManager" %>
+<%@page import="java.sql.ResultSet" %>
+<%@page import="java.sql.Statement" %>
+<%@page import="java.sql.Connection" %>
+<%@page import="java.sql.PreparedStatement" %>
+       
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +16,8 @@
     <title>List of products page</title>
 </head>
 <body>
+
+       
 <section class="header"><!-- SIDEBAR -->
     <div id="main">
         <button class="openbtn" onclick="openNav()"><i class="fa fa-bars"></i></button>
@@ -18,7 +26,6 @@
         <a href="#" class="closebtn" onclick="closeNav()">x</a>
         <h1 class="ad">ADMIN</h1>
         <a href="Dashboard.jsp"><i class="fa-solid fa-magnifying-glass"></i>  DASHBOARD</a>
-        <a href="categoryList.jsp"><i class="fa fa-tag"></i>   CATEGORY</a>
         <a href="productList.jsp"><i class="fas">&#xf49e;</i>   PRODUCT</a>
         <a href="staffInformation.jsp"><i class="fa-solid fa-user"></i>   PROFILE</a>
         <a href="MainPage.jsp" onclick="return confirm('Do you want to log out ?');"><i class="fa-solid fa-right-from-bracket"></i>   LOGOUT</a>
@@ -41,28 +48,45 @@
             <th id="prodPrice">PRICE PER UNIT <img src="filterW.png"></th>
             <th id="prodColor">COLOR <img src="filterW.png"></th>
             <th id="prodQuantity">QUANTITY <img src="filterW.png"></th>
-            <th id="prodStore">STORE <img src="filterW.png"></th>
-            <th id="prodCategory">CATEGORY <img src="filterW.png"></th>
+	        <th id="prodCategory">CATEGORY <img src="filterW.png"></th>
             <th id="prodAvail">AVAILABILITY <img src="filterW.png"></th>
             <th id="action">ACTION <img src="filterW.png"></th>
         </tr>
+        
+        
+       <%
+        String DB_DRIVER = "org.postgresql.Driver";
+   		String DB_CONNECTION = "jdbc:postgresql://ec2-44-206-197-71.compute-1.amazonaws.com/d5rq8o52eacr8k";
+   	    String DB_USER = "snzyojrrgmxiog";
+   	    String DB_PASSWORD = "f97a885181429218179ab9db94ff4fc6ab7ef611657375b7e35dad06697b711c";
+
+       Connection con = null;
+       Statement stat = null;
+       ResultSet res = null;
+       
+       Class.forName(DB_DRIVER);
+       con = DriverManager.getConnection(DB_CONNECTION,DB_USER,DB_PASSWORD);
+       stat = con.createStatement();
+       String data = "select * from product";
+       res = stat.executeQuery(data);
+       while(res.next()){
+       %>
         <tr>
-            <td><a href="prodDetails.jsp">PRD001</a></td>
-            <td>ADIDOS GAMING IDEAPAD 1</td>
-            <td>3200.80</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td class="action"><a href="updateProduct.jsp">&#128393;</a>
-                <span class="popup" id="popup">
-                    <div class="overlay"></div>
-                        <div class="content">
-                                <div class="close-btn" onclick="togglePopup()">&times;</div>
-                                <span class="symbol1">&#128505;</span><h4>DELETE PRODUCT SUCCESS</h4>
-                        </div></span>
-                <button class="action1" onclick="togglePopup()">&#128465;</button></td>
+            <td><a href="prodDetails.jsp"><%=res.getString("productid")%></a></td>
+            <td><%=res.getString("productname")%></td>
+            <td><%=res.getString("productprice")%></td>
+            <td><%=res.getString("productcolor")%></td>
+            <td><%=res.getString("productquantity")%></td>
+            <td><%=res.getString("categoryid")%></td>
+            <td><%=res.getString("productavailability")%></td>
+            <td class="action">
+            <a href="updateProduct.jsp?id=<%=res.getString("productid")%>">&#128393;</a> 
+            <button class="action1" onclick="return confirm('Are you sure you want to delete?');">&#128465;</button>
+     
+     	<% 
+       }
+       %>           
+            </td>
         </tr>
 
     </table>
@@ -391,9 +415,7 @@
 
 </style>
 <script>
-    function togglePopup() {
-        document.getElementById("popup").classList.toggle("active");
-    }
+
 
     function openNav() {
         document.getElementById("Sidebar").style.width = "275px";
