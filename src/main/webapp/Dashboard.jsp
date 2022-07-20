@@ -18,10 +18,7 @@
         <h1 class="ad">ADMIN</h1>
         <a href="Dashboard.jsp"><i class="fa-solid fa-magnifying-glass"></i>  DASHBOARD</a>
         <a href="categoryList.jsp"><i class="fa fa-tag"></i>   CATEGORY</a>
-        <a href="storeList.jsp"><i style='font-size:24px' class="fas">&#xf54f;</i>  STORE</a>
         <a href="productList.jsp"><i class="fas">&#xf49e;</i>   PRODUCT</a>
-        <a href="orderList.jsp"><i class="fa-solid fa-cart-arrow-down"></i>   ORDER</a>
-        <a href="ReportMainPage.jsp"><i class="fa-solid fa-chart-column"></i>   REPORT</a>
         <a href="staffInformation.jsp"><i class="fa-solid fa-user"></i>   PROFILE</a>
         <a href="MainPage.jsp" onclick="return confirm('Do you want to log out ?');"><i class="fa-solid fa-right-from-bracket"></i>   LOGOUT</a>
 
@@ -32,14 +29,11 @@
             <td>0<img src= "shoe.png" alt="shoe icon"><br>
                 <p>TOTAL PRODUCT</p></td>
             <td>0<img src= "statistic.png" alt="statistic icon"><br>
-                <p>TOTAL PAID ORDERS</p></td>
-            <td>0<img src= "store.png" alt="store icon"><br>
-                <p>TOTAL STORES</p></td>
+                <p>TOTAL CATEGORY</p></td>
         </tr>
         <tr class="more">
             <td>MORE INFO<a href="productList.jsp">&#10142;</a></td>
-            <td>MORE INFO<a href="orderList.jsp">&#10142;</a></td>
-            <td>MORE INFO<a href="storeList.jsp">&#10142;</a></td>
+            <td>MORE INFO<a href="categoryList.jsp">&#10142;</a></td>
         </tr>
     </table></div>
 </body>

@@ -6,7 +6,7 @@
   <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://kit.fontawesome.com/9bff21277a.js"></script>
-  <title>Create Order Page</title>
+  <title>Staff Information Page</title>
 </head>
 <body>
 	<section class="header"><!-- SIDEBAR -->
@@ -14,16 +14,13 @@
 	            <button class="openbtn" onclick="openNav()"><i class="fa fa-bars"></i></button>
 	        </div>
 	        <div id="Sidebar" class="sidebar">
-	            <a href="#" class="closebtn" onclick="closeNav()">x</a>
-                <h1 class="ad">ADMIN</h1>
-                <a href="Dashboard.jsp"><i class="fa-solid fa-magnifying-glass"></i>  DASHBOARD</a>
-                <a href="categoryList.jsp"><i class="fa fa-tag"></i>   CATEGORY</a>
-                <a href="storeList.jsp"><i style='font-size:24px' class="fas">&#xf54f;</i>  STORE</a>
-                <a href="productList.jsp"><i class="fas">&#xf49e;</i>   PRODUCT</a>
-                <a href="orderList.jsp"><i class="fa-solid fa-cart-arrow-down"></i>   ORDER</a>
-                <a href="ReportMainPage.jsp"><i class="fa-solid fa-chart-column"></i>   REPORT</a>
-                <a href="staffInformation.jsp"><i class="fa-solid fa-user"></i>   PROFILE</a>
-                <a href="MainPage.jsp" onclick="return confirm('Do you want to log out ?');"><i class="fa-solid fa-right-from-bracket"></i>   LOGOUT</a>
+				<a href="#" class="closebtn" onclick="closeNav()">x</a>
+				<h1 class="ad">ADMIN</h1>
+				<a href="Dashboard.jsp"><i class="fa-solid fa-magnifying-glass"></i>  DASHBOARD</a>
+				<a href="categoryList.jsp"><i class="fa fa-tag"></i>   CATEGORY</a>
+				<a href="productList.jsp"><i class="fas">&#xf49e;</i>   PRODUCT</a>
+				<a href="staffInformation.jsp"><i class="fa-solid fa-user"></i>   PROFILE</a>
+				<a href="MainPage.jsp" onclick="return confirm('Do you want to log out ?');"><i class="fa-solid fa-right-from-bracket"></i>   LOGOUT</a>
 
 			</div></section><!-- SIDEBAR -->
 	

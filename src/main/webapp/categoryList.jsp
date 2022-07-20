@@ -17,16 +17,13 @@
             <div id="Sidebar" class="sidebar">
                 <a href="#" class="closebtn" onclick="closeNav()">x</a>
                 <h1 class="ad">ADMIN</h1>
-                <a href="dashboard.html"><i class="fa-solid fa-magnifying-glass"></i>  DASHBOARD</a>
-                <a href="categoryList.html"><i class="fa fa-tag"></i>   CATEGORY</a>
-                <a href="storeList.html"><i style='font-size:24px' class="fas">&#xf54f;</i>  STORE</a>
-                <a href="CSCTESTMAIN.html"><i class="fas">&#xf49e;</i>   PRODUCT</a>
-                <a href="order.html"><i class="fa-solid fa-cart-arrow-down"></i>   ORDER</a>
-                <a href="ReportMainPage.html"><i class="fa-solid fa-chart-column"></i>   REPORT</a>
-                <a href="StaffInformation.html"><i class="fa-solid fa-user"></i>   PROFILE</a>
-                <a href="LogoutPage.html"><i class="fa-solid fa-right-from-bracket"></i>   LOGOUT</a>
-    
-    		</div></section><!-- SIDEBAR -->
+                <a href="Dashboard.jsp"><i class="fa-solid fa-magnifying-glass"></i>  DASHBOARD</a>
+                <a href="categoryList.jsp"><i class="fa fa-tag"></i>   CATEGORY</a>
+                <a href="productList.jsp"><i class="fas">&#xf49e;</i>   PRODUCT</a>
+                <a href="staffInformation.jsp"><i class="fa-solid fa-user"></i>   PROFILE</a>
+                <a href="MainPage.jsp" onclick="return confirm('Do you want to log out ?');"><i class="fa-solid fa-right-from-bracket"></i>   LOGOUT</a>
+
+            </div></section><!-- SIDEBAR -->
     <div id="myMain">
         <h2>CATEGORY</h2><br>
             <a href="createCategory.jsp" class="btn">CREATE CATEGORY</a><br><br>
