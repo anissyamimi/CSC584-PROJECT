@@ -55,7 +55,7 @@ public class ProductHandler extends HttpServlet {
                     break;
                 case "updateProduct":
                 	updateProduct(request,response);
-                    break;
+                    break; 
                 /*case "deleteAnnouncement":
                     deleteAnnouncement(request,response);
                     break;
@@ -71,7 +71,13 @@ public class ProductHandler extends HttpServlet {
         }
 
     }
-    private void createProduct(HttpServletRequest request, HttpServletResponse response)
+    private void updateProduct(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private void createProduct(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
 
         String productname = request.getParameter("productname");
