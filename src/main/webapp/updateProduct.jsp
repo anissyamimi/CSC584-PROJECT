@@ -50,7 +50,7 @@
        <%
        stat = conn.createStatement();
        String u = request.getParameter("id");
-       String data = "select * from product where productid='"+u+"'";
+       String data = "select * from product join category using (categoryid) where productid='"+u+"'";
        res = stat.executeQuery(data);
        while(res.next()){
        %>
@@ -66,11 +66,13 @@
             <label for="cars">Choose a car:</label>
 
 			<select name="productavailability">
+			  <option  selected disabled hidden><%=res.getString("categorystatus")%></option>
 			  <option value="Available">Available</option>
 			  <option value="Not Available">Not Available</option>
 			</select>
 			
 			<select name="categoryid">
+			  <option  selected disabled hidden><%=res.getString("categoryname")%></option>
 			  <option value="1">LEBOVO</option>
 			  <option value="2">DP</option>
 			</select>

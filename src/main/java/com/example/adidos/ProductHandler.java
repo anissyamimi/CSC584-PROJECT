@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.example.adidos.Product;
 import com.example.adidos.ProductDAO;
@@ -56,11 +57,11 @@ public class ProductHandler extends HttpServlet {
                 case "updateProduct":
                 	updateProduct(request,response);
                     break; 
-                /*case "deleteAnnouncement":
-                    deleteAnnouncement(request,response);
+                case "deleteProduct":
+                	deleteProduct(request,response);
                     break;
 
-                case "cancel":
+                    /*case "cancel":
                     cancel(request, response);
                     break;*/
 
@@ -73,6 +74,32 @@ public class ProductHandler extends HttpServlet {
     }
     private void updateProduct(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 		// TODO Auto-generated method stub
+    	
+        String productname = request.getParameter("productname");
+        float productprice = Float.parseFloat(request.getParameter("productprice"));
+        String productcolor = request.getParameter("productcolor");
+        int productquantity = Integer.parseInt(request.getParameter("productquantity"));
+        String productavailability = request.getParameter("productavailability");
+        int categoryid = Integer.parseInt(request.getParameter("categoryid"));
+        int productid = Integer.parseInt(request.getParameter("id"));
+
+
+        
+        Product pdt = new Product();
+        pdt.setProductID(productid);
+        pdt.setProductName(productname);
+        pdt.setProductPrice(productprice);
+        pdt.setProductColor(productcolor);
+        pdt.setProductQuantity(productquantity);
+        pdt.setProductAvailability(productavailability);
+        pdt.setCategoryID(categoryid);
+
+
+
+
+        pd.updateProduct(pdt);
+        response.sendRedirect("productList.jsp");
+
 		
 	}
 
@@ -101,7 +128,14 @@ public class ProductHandler extends HttpServlet {
 
 
         pd.createProduct(pdt);
-        response.sendRedirect("categoryList.jsp");
+        response.sendRedirect("productList.jsp");
+    }
+	
+    private void deleteProduct(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+        int id = Integer.parseInt(request.getParameter("productid"));
+        pd.deleteProduct(id);
+        response.sendRedirect("productList.jsp");
     }
     
     /*

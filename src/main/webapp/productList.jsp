@@ -37,10 +37,7 @@
     <span action="/action_page.php" class="search-container">
                 <button type="submit" class="srcbtn"><i class="fa fa-search"></i></button>
                 <input type="text" class="search" placeholder="Search.." name="search"></span><br>
-    <label for="entries" class="entries">SHOW</label>
-    <input type="number" class="entries1" id="entries" name="entries">
-    <span class="symbol">&#8645;</span>
-    <span class="entries">ENTRIES</span>
+
     <table id="store">
         <tr>
             <th id="prodID">PRODUCT ID <img src="filterW.png"></th>
@@ -81,8 +78,11 @@
             <td><%=res.getString("productavailability")%></td>
             <td class="action">
             <a href="updateProduct.jsp?id=<%=res.getString("productid")%>">&#128393;</a> 
+            <form action="ProductHandler" method="post">
+            <input type="hidden" name="productid" value="<%=res.getString("productid")%>">
+            <input type="hidden" name="action" value="deleteProduct">
             <button class="action1" onclick="return confirm('Are you sure you want to delete?');">&#128465;</button>
-     
+     		</form>
      	<% 
        }
        %>           
@@ -90,15 +90,7 @@
         </tr>
 
     </table>
-    <div class="respond">
-        <span class="info">SHOWING 1 TO 3 ENTRIES</span>
-        <a href="#" class="btnB">PREVIOUS</a>
-        <a href="#" class="btnB1">1</a>
-        <!--<a href="#" class="btnB">2</a></button>
-        <a href="#" class="btnB">3</a></button>
-        if lebih dari satu page/ data banyak -->
-        <a href="#" class="btnB">NEXT</a>
-    </div></div>
+</div>
 </body>
 <style>
     body {

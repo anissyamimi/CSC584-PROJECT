@@ -45,6 +45,39 @@ public class ProductDAO {
             e.printStackTrace();
         }
     }
+        
+        public void updateProduct (Product pdt) throws SQLException {
+        		try (Connection connection = getConnection();
+                    PreparedStatement ps = connection.prepareStatement("update product set productname=?,productprice=?,productquantity=?,productcolor=?,productavailability=?,categoryid=? where productid=?");) 
+
+            {
+
+                ps.setString(1, pdt.getProductName());
+                ps.setFloat(2, pdt.getProductPrice());
+                ps.setInt(3, pdt.getProductQuantity());
+                ps.setString(4, pdt.getProductColor());
+                ps.setString(5, pdt.getProductAvailability());
+                ps.setInt(6, pdt.getCategoryID());
+                ps.setInt(7, pdt.getProductID());
+
+
+                ps.executeUpdate();
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            
+    }
+            }
+        
+        public void deleteProduct(int id) throws SQLException {
+            try (Connection connection = getConnection();
+                 PreparedStatement statement = connection.prepareStatement("delete from product where productid=?")) {
+                statement.setInt(1, id);
+                
+                statement.executeUpdate();
+            }
+        }        
+          
     /*
     public boolean deleteAnnouncement(int id) throws SQLException {
         boolean rowDeleted;

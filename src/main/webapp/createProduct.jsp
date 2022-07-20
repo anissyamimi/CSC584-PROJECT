@@ -34,7 +34,7 @@
             <input type="text" id="prodColor" name="productcolor"><br>
             <label for="prodQuantity">Product Quantity </label>
             <input type="text" id="prodQuantity" name="productquantity"><br>
-            <label for="cars">Choose a car:</label>
+            <label for="cars">Choose availability:</label>
 
 			<select name="productavailability" >
 			  <option value="Available">Available</option>
@@ -271,4 +271,3 @@
 </script>   
 </html>
 
-CREATE PRODUCT
