@@ -18,7 +18,7 @@
             </div>
             <h1 class="welcome">
                 <span class="text-wrapper">
-                    <span class="letters">INVENTORY MANAGEMENT SYSTEM</span>
+                    <span class="letters">INVENTORYs MANAGEMENT SYSTEM</span>
                 </span>    
             </h1>
             <br><br>
