@@ -16,7 +16,8 @@
 		<input type="password" id="psw1" name="password1" placeholder= "Enter Password" required>
 		<br><br><br><br><br>
 		<br><br><br>
-		<input type="submit" value="Login">
+		<input type="hidden" name="action" value="loginStaff">
+		<input type="submit" value="Login" formaction=StaffHandler>
 		
 		<br><br><a href="#">Forgot Password?</a>
 		</form>
