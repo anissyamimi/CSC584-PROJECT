@@ -36,9 +36,9 @@
             <span class="entries">ENTRIES</span>
             <table id="store">
                 <tr>
-                  <th id="storeid">STORE ID <img src="filterW.png"></th>
-                  <th id="storename">STORE NAME <img src="filterW.png"></th>
-                  <th id="status">STATUS <img src="filterW.png"></th>
+                  <th id="categoryID">CATEGORY ID <img src="filterW.png"></th>
+                  <th id="categoryName">CATEGORY NAME <img src="filterW.png"></th>
+                  <th id="categoryStatus">CATEGORY STATUS <img src="filterW.png"></th>
                   <th>ACTION <img src="filterW.png"></th>
                 </tr>
                 <tr>

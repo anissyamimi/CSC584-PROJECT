@@ -25,18 +25,23 @@
         </div></section><!-- SIDEBAR -->
 <div id="myMain">
         <h2>UPDATE CATEGORY</h2>
-        <form id="create" action="" method="post">
+        <form id="create" action="" method="post" action="CategoryHandler">
             <label for="categoryName">Category Name</label>
-            <input type="text" id="categoryname" name="categoryname"><br>
+            <input type="text" id="categoryName" name="categoryName"><br>
+            
             <label for="status" class="status">Status</label>
-            <input type="checkbox" id="status1" name="status1">
+            
+            <input type="checkbox" id="status1" name="categoryStatus" value="ACTIVE">
             <label for="status1" class="space"><span class="status1">&#9679;</span>ACTIVE</label>
-            <input type="checkbox" id="status2" name="status2">
+            
+            <input type="checkbox" id="status2" name="categoryStatus" value="INACTIVE">
             <label for="status2"><span class="status2">&#9679;</span>INACTIVE</label>
         </form></div>
         <div class="respond">
             <button class="btn">BACK</button>
-            <button class="btn">UPDATE CATEGORY</button>
+            
+            <input type="hidden" name="action" value="updateCategory">
+                <button class="btn" type="submit" formaction="CategoryHandler" onclick="return confirm('Are you sure you want to update?');">UPDATE CATEGORY</button>
         </div>
     </body>
     
