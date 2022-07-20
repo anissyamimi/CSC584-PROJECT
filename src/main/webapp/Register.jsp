@@ -68,13 +68,13 @@
 	  		
 	  		<br><br>
 			<label for="gender" class="staffGender">Gender <span>*</span></label>
-			<input type="radio" name="male" id="male" value="male">Male
-			<input type="radio" name="female" id="female" value="female" >Female
+			<input type="radio" name="staffGender" id="male" value="male">Male
+			<input type="radio" name="staffGender" id="female" value="female" >Female
 			
 			<br><br><br>
 			<label for="MaritalStatus">Marital Status <span>*</span></label>
 	      	<select name="staffMaritalstatus" id="staffMaritalstatus">
-	          <option value="">--Marital Status--</option>
+	          <option>--Marital Status--</option>
 	          <option value="Single">Single</option>
 	          <option value="Married">Married</option>
 	          <option value="Divorced">Divorced</option>

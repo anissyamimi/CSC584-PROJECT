@@ -112,7 +112,7 @@ public class StaffHandler extends HttpServlet {
     	String staffState = request.getParameter("staffState");
     	String staffGender = request.getParameter("staffGender");
     	String staffNationality = request.getParameter("staffNationality");
-    	String staffMaritalStatus = request.getParameter("staffMaritalStatus");
+    	String staffMaritalStatus = request.getParameter("staffMaritalstatus");
     	String staffRace = request.getParameter("staffRace");
     	String staffPassword = request.getParameter("staffPassword");
         
@@ -186,23 +186,23 @@ public class StaffHandler extends HttpServlet {
     	StringWriter sWriter = new StringWriter();
     	PrintWriter out = new PrintWriter(sWriter);
     	
-    	String username = request.getParameter("staffID");
-    	String password = request.getParameter("staffPassword"); 
+    	String username = request.getParameter("identificationnumber");
+    	String password = request.getParameter("password1"); 
     	
 	    Connection con = null;
     	try {
-    		Class.forName("oracle.jdbc.driver.OracleDriver");
-    	    String dbURL = "jdbc:oracle:thin:@localhost:1521:xe";
-    	    String user = "udonation";
-    	    String pass = "system";
+    		Class.forName("org.postgresql.Driver");
+    		String dbURL = "jdbc:postgresql://ec2-44-206-197-71.compute-1.amazonaws.com/d5rq8o52eacr8k";
+    	    String user = "snzyojrrgmxiog";
+    	    String pass = "f97a885181429218179ab9db94ff4fc6ab7ef611657375b7e35dad06697b711c";
     	    con = DriverManager.getConnection(dbURL,user, pass);
     	    
-    	    String sql ="SELECT * From committee";
+    	    String sql ="SELECT * From staff";
     	    Statement stmt=con.createStatement();
     	    ResultSet res=stmt.executeQuery(sql);
                 
                 while (res.next()){
-                    if(username.equals(res.getString("staffID")) && password.equals(res.getString("staffPassword")))
+                    if(username.equals(res.getString("staffid")) && password.equals(res.getString("staffpassword")))
                     {
                     	 Staff sta = new Staff();
                     	 
@@ -211,11 +211,11 @@ public class StaffHandler extends HttpServlet {
                          sta.setStaffPhone(res.getString(3));
                          sta.setStaffEmail(res.getString(4));
                          sta.setStaffBirthDate(res.getDate(5));
-                         sta.setStaffAddress(res.getString(6));
-                         sta.setStaffCity(res.getString(7));
-                         sta.setStaffPostcode(res.getInt(8));
-                         sta.setStaffState(res.getString(9));
-                         sta.setStaffGender(res.getString(10));
+                         sta.setStaffGender(res.getString(6));
+                         sta.setStaffAddress(res.getString(7));
+                         sta.setStaffCity(res.getString(8));
+                         sta.setStaffPostcode(res.getInt(9));
+                         sta.setStaffState(res.getString(10));
                          sta.setStaffNationality(res.getString(11));
                          sta.setStaffMaritalStatus(res.getString(12));
                          sta.setStaffRace(res.getString(13));
