@@ -25,21 +25,25 @@
         </div></section><!-- SIDEBAR -->
 <div id="myMain">
         <h2>CREATE CATEGORY</h2>
-        <form id="create" action="categoryList.jsp" method="post" action="CategoryHandler">
+        <form id="create" method="post" action="CategoryHandler">
             <label for="categoryName">Category Name</label>
             <input type="text" id="categoryName" name="categoryName"><br>
             
             <label for="status" class="status">Status</label>
-            <input type="checkbox" id="status1" name="status1">
+            
+            <input type="checkbox" id="status1" name="categoryStatus" value="ACTIVE">
             <label for="status1" class="space"><span class="status1">&#9679;</span>ACTIVE</label>
-            <input type="checkbox" id="status2" name="status2">
+            
+            <input type="checkbox" id="status2" name="categoryStatus" value="INACTIVE">
             <label for="status2"><span class="status2">&#9679;</span>INACTIVE</label>
-        </form></div>
+        
         <div class="respond">
         	<button class="btn">BACK</button>
         	
 			<input type="hidden" name="action" value="createCategory">
-    		<button type="submit" class="btn" name="submit" formaction="CategoryHandler" >CREATE CATEGORY</button><br><br>
+    		<button type="submit" class="btn" name="submit" formaction="CategoryHandler">CREATE CATEGORY</button><br><br>
+        </div>
+        </form>
         </div>
     </body>
     

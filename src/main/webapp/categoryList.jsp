@@ -17,7 +17,7 @@
                    password="f97a885181429218179ab9db94ff4fc6ab7ef611657375b7e35dad06697b711c"/>
 		
 		<sql:query dataSource="${ic}" var="oc">
-		    SELECT categoryID,categoryName,categoryStatus from Category where categoryID>0
+		    SELECT * from Category where categoryID>0
 		</sql:query>
         
              <section class="header"><!-- SIDEBAR -->
@@ -40,10 +40,6 @@
             <span action="/action_page.php" class="search-container">
                 <button type="submit" class="srcbtn"><i class="fa fa-search"></i></button>
                 <input type="text" class="search" placeholder="Search.." name="search"></span><br>
-            <label for="entries" class="entries">SHOW</label>
-            <input type="number" class="entries1" id="entries" name="entries">
-            <span class="symbol">&#8645;</span>
-            <span class="entries">ENTRIES</span>
             
             <div style="overflow-x:auto;">
             <table id="store" style="text-align: center;">
@@ -75,15 +71,7 @@
                 </c:forEach>
               </table>
               <br>
-              <div class="respond">
-                <span class="info">SHOWING 1 TO 3 ENTRIES</span>
-                <a href="#" class="btnB">PREVIOUS</a>
-                <a href="#" class="btnB1">1</a>
-                <!--<a href="#" class="btnB">2</a></button>
-                <a href="#" class="btnB">3</a></button> 
-                if lebih dari satu page/ data banyak -->
-                <a href="#" class="btnB">NEXT</a>
-            </div></div>
+             </div>
         </body>
 <style>
 	body {

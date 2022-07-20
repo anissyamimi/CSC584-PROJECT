@@ -39,11 +39,10 @@ public class CategoryDao {
     	
         try (Connection con = getConnection();
              PreparedStatement ps = con.prepareStatement
-                     ("INSERT INTO CATEGORY(categoryID,categoryName,categoryStatus) values(?,?,?)"))
+                     ("INSERT INTO CATEGORY(categoryName,categoryStatus) values(?,?)"))
         {
-            ps.setInt(1, cat.getCategoryID());
-            ps.setString(2, cat.getCategoryName());
-            ps.setString(3, cat.getCategoryStatus());
+            ps.setString(1, cat.getCategoryName());
+            ps.setString(2, cat.getCategoryStatus());
             out.println(ps);
             ps.executeUpdate();
         }
@@ -55,7 +54,7 @@ public class CategoryDao {
     public boolean deleteCategory(int id) throws SQLException {
         boolean rowDeleted;
         try (Connection connection = getConnection();
-             PreparedStatement statement = connection.prepareStatement("DELETE FROM category WHERE categoryID=?");) {
+             PreparedStatement statement = connection.prepareStatement("DELETE FROM category WHERE categoryID=?")) {
             statement.setInt(1, id);
             rowDeleted = statement.executeUpdate() > 0;
         }
@@ -68,11 +67,12 @@ public class CategoryDao {
         // try-with-resource statement will auto close the connection.
         try (Connection con = getConnection();
              PreparedStatement ps = con.prepareStatement
-                     ("UPDATE staff set categoryName=?,categoryStatus=? WHERE categoryID = ?");)
+                     ("UPDATE category set categoryName=?,categoryStatus=? WHERE categoryID = ?"))
+
         {
-            ps.setString(2, cat.getCategoryName());
-            ps.setString(3, cat.getCategoryStatus());
-            ps.setInt(1, cat.getCategoryID());
+            ps.setString(1, cat.getCategoryName());
+            ps.setString(2, cat.getCategoryStatus());
+            ps.setInt(3, cat.getCategoryID());
             
              //ps.executeUpdate();
              rowUpdated = ps.executeUpdate() > 0;        

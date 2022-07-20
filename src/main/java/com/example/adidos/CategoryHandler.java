@@ -68,13 +68,11 @@ public class CategoryHandler extends HttpServlet {
     private void createCategory(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
 
-    	int categoryID = Integer.parseInt(request.getParameter("categoryID"));
         String categoryName = request.getParameter("categoryName");
         String categoryStatus = request.getParameter("categoryStatus");
 
         Category cat = new Category();
 
-        cat.setCategoryID(categoryID);
         cat.setCategoryName(categoryName);
         cat.setCategoryStatus(categoryStatus);
 
@@ -91,13 +89,13 @@ public class CategoryHandler extends HttpServlet {
 
     private void updateCategory(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        int categoryID = Integer.parseInt(request.getParameter("categoryID"));
         String categoryName = request.getParameter("categoryName");
         String categoryStatus = request.getParameter("categoryStatus");
         
         Category cat = new Category();
 
-        cat.setCategoryID(id);
+        cat.setCategoryID(categoryID);
         cat.setCategoryName(categoryName);
         cat.setCategoryStatus(categoryStatus);
 
