@@ -8,15 +8,15 @@ import static java.lang.System.out;
 
 public class CategoryDao {
 
-    String dbURL = "jdbc:oracle:thin:@localhost:1521:xe";
-    String user = "udonation";
-    String pass = "system";
+    String dbURL = "jdbc:postgresql://ec2-44-206-197-71.compute-1.amazonaws.com/d5rq8o52eacr8k";
+    String user = "snzyojrrgmxiog";
+    String pass = "f97a885181429218179ab9db94ff4fc6ab7ef611657375b7e35dad06697b711c";
 
     protected Connection getConnection() {
         Connection con = null;
         try {
         	//Load the driver class
-            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Class.forName("org.postgresql.Driver");
             con = DriverManager.getConnection(dbURL, user, pass);
         }
         

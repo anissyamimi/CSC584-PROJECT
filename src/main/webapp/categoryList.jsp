@@ -68,7 +68,7 @@
 					<form method="post">
 						<input type="hidden" name="categoryID" value="${result.categoryID}">
 						<input type="hidden" name="action" value="deleteCategory">
-						<button  class="action" type="delete" formaction="CategoryHandler" onclick="return confirm('Are you sure you want to delete?')">&#128505;</button>
+						<button  class="action" type="delete" formaction="CategoryHandler" onclick="return confirm('Are you sure you want to delete?')">&#128465;</button>
 					</form>
 				</td>
                 </tr>

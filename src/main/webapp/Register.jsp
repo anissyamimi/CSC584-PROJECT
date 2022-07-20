@@ -14,7 +14,7 @@
 	<div id="myMain">
 	<div class='center'>
 	<div class="header">STAFF INFORMATION</div>
-      <form action="" name="myForm" action="StaffHandler" method="post" onsubmit="return validation()">
+      <form name="myForm" action="StaffHandler" method="post" onsubmit="return validation()">
       		<br>
             <label  for="staffName">Full Name <span>*</span></label>
             <input type="text" name="staffName" placeholder="Enter your full name">
