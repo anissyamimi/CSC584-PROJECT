@@ -31,7 +31,7 @@
 
         </div></section><!-- SIDEBAR -->
         
-        	<%
+       <%
     		String DB_DRIVER = "org.postgresql.Driver";
         	String DB_CONNECTION = "jdbc:postgresql://ec2-44-206-197-71.compute-1.amazonaws.com/d5rq8o52eacr8k";
     	    String DB_USER = "snzyojrrgmxiog";
@@ -46,7 +46,8 @@
        %>
 		<div id="myMain">
         <h2>UPDATE PRODUCT</h2>
-        <form id="create" action="ProductHandler" method="post">       <%
+        <form id="create" action="ProductHandler" method="post">       
+       <%
        stat = conn.createStatement();
        String u = request.getParameter("id");
        String data = "select * from product where productid='"+u+"'";
