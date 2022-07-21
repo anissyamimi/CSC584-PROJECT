@@ -12,7 +12,7 @@
   <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://kit.fontawesome.com/9bff21277a.js"></script>
-  <title>Staff Information Page</title>
+  <title>Update Staff Information Page</title>
 </head>
 <body>
     <%
@@ -46,53 +46,92 @@
 	
 	<div id="myMain">
 	<div class='center'>
-	<div class="h">STAFF INFORMATION</div>
+	<div class="h">UPDATE STAFF INFORMATION</div>
       <form action="" name="myForm" method="post" onsubmit="return validation()">
       <input type="hidden" name="id" value='<%=rs.getString("staffID")%>'/>
+      
       		<br>
-            <label  for="staffName">FULL NAME: <%=rs.getString("staffName")%></label>
+            <label  for="staffName">FULL NAME: </label>
+            <input type="text" name="staffName" class="forInput" value='<%=rs.getString("staffName") %>'>
             
             <br>
          	<label for="idno">IDENTIFICATION NUMBER: <%=rs.getString("staffID")%></label>
 			
 			<br>
-			<label for="phoneno">PHONE NUMBER: <%=rs.getString("staffPhone")%></label>
+			<label for="phoneno">PHONE NUMBER: </label>
+			<input type="text" name="staffPhone" class="forInput" value='<%=rs.getString("staffPhone") %>'>
 			
 			<br>
-			<label for="address">ADDRESS: <%=rs.getString("staffAddress")%></label>
+			<label for="address">ADDRESS: </label>
+			<input type="text" name="staffAddress" class="forInput" value='<%=rs.getString("staffAddress") %>'>
+			
 			
 			<br>
-			<label for="city">CITY: <%=rs.getString("staffCity")%></label>
+			<label for="city">CITY: </label>
+			<input type="text" name="staffCity" class="forInput" value='<%=rs.getString("staffCity") %>'>
 			
 			<br>
-			<label for="postcode">POSTCODE: <%=rs.getInt("staffPostcode")%></label>
+			<label for="postcode">POSTCODE: </label>
+			<input type="text" name="staffPostcode" class="forInput" value='<%=rs.getString("staffPostcode") %>'>
 			
 			<br>
-			<label for="state">STATE: <%=rs.getString("staffState")%></label>
+			<label for="state">STATE: </label>
+			<select name="staffState" id="staffState" class="forInput">
+	          <option  selected disabled hidden><%=rs.getString("staffState") %></option>
+	          <option value="Johor">Johor</option>
+	          <option value="Kedah">Kedah</option>
+	          <option value="Kelantan">Kelantan</option>
+	          <option value="Kuala Lumpur">Kuala Lumpur</option>
+	          <option value="Melaka">Melaka</option>
+	          <option value="Negeri Sembilan">Negeri Sembilan</option>
+	          <option value="Pahang">Pahang</option>
+	          <option value="Perak">Perak</option>
+	          <option value="Perlis">Perlis</option>
+	          <option value="Pulau Pinang">Pulau Pinang</option>
+	          <option value="Sabah">Sabah</option>
+	          <option value="Sarawak">Sarawak</option>
+	          <option value="Selangor">Selangor</option>
+	          <option value="Terengganu">Terengganu</option>
+	     	</select>
             
             <br>
-            <label for="email">EMAIL: <%=rs.getString("staffEmail")%></label>
+            <label for="email">EMAIL: </label>
+            <input type="text" name="staffEmail" class="forInput" value='<%=rs.getString("staffEmail") %>'>
 			
 			<br>
-			<label for="birthday">BIRTHDATE: <%=rs.getString("staffBirthDate")%></label>
+			<label for="birthday">BIRTHDATE: </label>
+			<input type="date" name="staffBirthDate" class="forInput" value='<%=rs.getString("staffBirthDate") %>'>
+
+	  		<br>
+			<label for="gender" class="gender">GENDER: </label>
+			<select name="staffGender">
+				  <option  selected disabled hidden><%=rs.getString("staffGender") %></option>
+				  <option value="MALE">MALE</option>
+				  <option value="FEMALE">FEMALE</option>
+				</select>
+			
+			<br>
+			<label for="MaritalStatus">MARITAL STATUS: </label>
+			<select name="staffMaritalstatus" id="staffMaritalstatus">
+	          <option  selected disabled hidden><%=rs.getString("staffMaritalStatus")%></option>
+	          <option value="Single">Single</option>
+	          <option value="Married">Married</option>
+	          <option value="Divorced">Divorced</option>
+	          <option value="Widowed">Widowed</option>
+	     	</select>
+			
+			<br>
+			<label  for="race">RACE: </label>
+			<input type="text" name="staffRace" class="forInput" value='<%=rs.getString("staffRace") %>'>
 	  		
 	  		<br>
-			<label for="gender" class="gender">GENDER: <%=rs.getString("staffGender")%></label>
-			
-			<br>
-			<label for="MaritalStatus">MARITAL STATUS: <%=rs.getString("staffMaritalStatus")%></label>
-			
-			<br>
-			<label  for="race">RACE: <%=rs.getString("staffRace")%></label>
-	  		
-	  		<br>
-	  		<label for="nationality">NATIONALITY: <%=rs.getString("staffNationality")%></label>
+	  		<label for="nationality">NATIONALITY: </label>
+	  		<input type="text" name="staffNationality" class="forInput" value='<%=rs.getString("staffNationality") %>'>
            
             <br> 
 	        <div class="respond">
-            	<a href="#" class="btn">BACK</a>
-				<button  class="btn"  type="update" formaction="updateStaff.jsp?id=${result.staffID}">UPDATE
-				</button>
+            		<input type="hidden" name="action" value="update">
+    				<button type="submit" class="btn" formaction="StaffHandler" onclick="return confirm('Are you sure you want to update?');">UPDATE</button><br>
         	</div>
         <%} %>
       </form>
@@ -120,6 +159,9 @@
       transition: 0.5s;
       padding-top: 60px;
    }
+   
+   span{
+	color: red;}
     
   .ad {
       color: white;

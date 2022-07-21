@@ -233,7 +233,7 @@ public class StaffHandler extends HttpServlet {
     		         	session.setAttribute("staffGender",sta.getStaffGender());
     		         	session.setAttribute("staffNationality",sta.getStaffNationality());
     		         	session.setAttribute("staffMaritalStatus",sta.getStaffMaritalStatus());
-    		         	session.setAttribute("staffReligion",sta.getStaffRace());
+    		         	session.setAttribute("staffRace",sta.getStaffRace());
     		         	session.setAttribute("staffPassword",sta.getStaffPassword());
          	     
                         response.sendRedirect("staffInformation.jsp");
