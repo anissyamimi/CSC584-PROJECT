@@ -73,7 +73,6 @@ public class ProductHandler extends HttpServlet {
     private void updateProduct(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 		// TODO Auto-generated method stub
     	
-		HttpSession session = request.getSession();
         String productname = request.getParameter("productname");
         float productprice = Float.parseFloat(request.getParameter("productprice"));
         String productcolor = request.getParameter("productcolor");
@@ -81,7 +80,7 @@ public class ProductHandler extends HttpServlet {
         String productavailability = request.getParameter("productavailability");
         int categoryid = Integer.parseInt(request.getParameter("categoryid"));
         int productid = Integer.parseInt(request.getParameter("id"));
-        String id = (String) session.getAttribute("staffid");
+        String id = request.getParameter("sid");
 
 
 
@@ -97,6 +96,9 @@ public class ProductHandler extends HttpServlet {
         pdt.setStaffID(id);
         int storeid = Integer.parseInt(request.getParameter("storeid"));
         pdt.setStoreID(storeid);
+        
+        System.out.println(pdt.getStaffID());
+
 
 
 

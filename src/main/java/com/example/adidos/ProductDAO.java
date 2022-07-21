@@ -51,7 +51,7 @@ public class ProductDAO {
         
         public void updateProduct (Product pdt) throws SQLException {
         		try (Connection connection = getConnection();
-                    PreparedStatement ps = connection.prepareStatement("update product set productname=?,productprice=?,productquantity=?,productcolor=?,productavailability=?,categoryid=?,storeid=?,staffid=? where productid=?");) 
+                    PreparedStatement ps = connection.prepareStatement("update product set productname=?,productprice=?,productquantity=?,productcolor=?,productavailability=?,categoryid=?,storeid=?,staffid=? where productid=?")) 
 
             {
 
@@ -64,6 +64,8 @@ public class ProductDAO {
                 ps.setInt(7, pdt.getStoreID());
                 ps.setString(8, pdt.getStaffID());
                 ps.setInt(9, pdt.getProductID());
+                
+                System.out.println(ps);	
 
 
                 ps.executeUpdate();

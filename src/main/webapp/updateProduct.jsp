@@ -73,7 +73,7 @@
        while(res.next()){
        %>
 
-			<input type="hidden" name="staffid" value="<%=res.getString("staffid")%>">
+			<input type="hidden" name="sid" value="<%=res.getString("staffid")%>">
 			<input type="hidden" name="id" value="<%=res.getInt("productid")%>">
             <label for="prodName">Product Name</label>
             <input type="text" id="prodName" name="productname" value="<%=res.getString("productname")%>"><br>
