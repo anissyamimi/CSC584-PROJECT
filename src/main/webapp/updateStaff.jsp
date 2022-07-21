@@ -47,15 +47,15 @@
 	<div id="myMain">
 	<div class='center'>
 	<div class="h">UPDATE STAFF INFORMATION</div>
-      <form action="" name="myForm" method="post" onsubmit="return validation()">
-      <input type="hidden" name="id" value='<%=rs.getString("staffID")%>'/>
+      <form action="StaffHandler" name="myForm" method="post" onsubmit="return validation()">
+      <input type="hidden" name="staffID" value='<%=rs.getString("staffID")%>'/>
       
       		<br>
             <label  for="staffName">FULL NAME: </label>
             <input type="text" name="staffName" class="forInput" value='<%=rs.getString("staffName") %>'>
             
             <br>
-         	<label for="idno">IDENTIFICATION NUMBER: <%=rs.getString("staffID")%></label>
+         	<label for="idno" >IDENTIFICATION NUMBER: <%=rs.getString("staffID")%></label>
 			
 			<br>
 			<label for="phoneno">PHONE NUMBER: </label>
@@ -130,7 +130,7 @@
            
             <br> 
 	        <div class="respond">
-            		<input type="hidden" name="action" value="update">
+            		<input type="hidden" name="action" value="updateStaff">
     				<button type="submit" class="btn" formaction="StaffHandler" onclick="return confirm('Are you sure you want to update?');">UPDATE</button><br>
         	</div>
         <%} %>
