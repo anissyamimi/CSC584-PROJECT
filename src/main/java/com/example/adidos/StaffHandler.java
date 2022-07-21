@@ -154,7 +154,6 @@ public class StaffHandler extends HttpServlet {
     	String staffNationality = request.getParameter("staffNationality");
     	String staffMaritalStatus = request.getParameter("staffMaritalStatus");
     	String staffRace = request.getParameter("staffRace");
-    	String staffPassword = request.getParameter("staffPassword");
         
         Staff sta = new Staff();
         
@@ -171,7 +170,6 @@ public class StaffHandler extends HttpServlet {
         sta.setStaffNationality(staffNationality);
         sta.setStaffMaritalStatus(staffMaritalStatus);
         sta.setStaffRace(staffRace);
-        sta.setStaffPassword(staffPassword);
         
         sd.updateStaff(sta);
         
@@ -226,17 +224,18 @@ public class StaffHandler extends HttpServlet {
     		         	session.setAttribute("staffPhone",sta.getStaffPhone());
     		         	session.setAttribute("staffEmail",sta.getStaffEmail());
     		         	session.setAttribute("staffBirthDate",sta.getStaffBirthDate());
+    		         	session.setAttribute("staffGender",sta.getStaffGender());
     		         	session.setAttribute("staffAddress",sta.getStaffAddress());
     		         	session.setAttribute("staffCity",sta.getStaffCity());
     		         	session.setAttribute("staffPostcode",sta.getStaffPostcode());
     		         	session.setAttribute("staffState",sta.getStaffState());
-    		         	session.setAttribute("staffGender",sta.getStaffGender());
     		         	session.setAttribute("staffNationality",sta.getStaffNationality());
     		         	session.setAttribute("staffMaritalStatus",sta.getStaffMaritalStatus());
     		         	session.setAttribute("staffRace",sta.getStaffRace());
     		         	session.setAttribute("staffPassword",sta.getStaffPassword());
          	     
                         response.sendRedirect("staffInformation.jsp");
+                        System.out.println(stmt);
                     }
                     else{}
                 }out.print("Password / Identification Number is invalid");

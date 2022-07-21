@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,14 +10,14 @@
 	<div id='center'>
 	  <div class='signup'>
 		<div class="header">LOGIN PAGE</div>
-		<form action="Dashboard.jsp" method="post">
+		<form action="StaffHandler" method="post">
 		<br><br>
 		<input type = "text" name="staffID" placeholder = "Enter MYKAD Identification Number" required>
 		<input type="password" id="psw1" name="staffPassword" placeholder= "Enter Password" required>
 		<br><br><br><br><br>
 		<br><br><br>
 		<input type="hidden" name="action" value="loginStaff">
-               <button class=button type="submit" formaction=StaffHandler>Login</button>
+		<button class=button type="submit" formaction=StaffHandler>Login</button>
 		
 		<br><br><a href="#">Forgot Password?</a>
 		</form>
