@@ -68,8 +68,8 @@
 	  		
 	  		<br><br>
 			<label for="gender" class="staffGender">Gender <span>*</span></label>
-			<input type="radio" name="staffGender" id="male" value="male">Male
-			<input type="radio" name="staffGender" id="female" value="female" >Female
+			<input type="radio" name="staffGender" id="male" value="Male">Male
+			<input type="radio" name="staffGender" id="female" value="Female" >Female
 			
 			<br><br><br>
 			<label for="MaritalStatus">Marital Status <span>*</span></label>
