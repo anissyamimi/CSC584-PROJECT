@@ -337,7 +337,7 @@
 	}
 	
 	.flg {
-	  margin-top: 210px;
+	  margin-top: 160px;
 	}
 	
 	.sidebar .closebtn {
