@@ -28,7 +28,7 @@
     ResultSet rs=stmt.executeQuery(sql);
     while(rs.next())
     {
-%>
+	%>
       <section class="header"><!-- SIDEBAR -->
         <div id="main">
             <button class="openbtn" onclick="openNav()"><i class="fa fa-bars"></i></button>

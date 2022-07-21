@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +10,22 @@
     <title>dashboard page</title>
 </head>
 <body>
-<section class="header"><!-- SIDEBAR -->
+        <sql:setDataSource 
+       			   var="ic" 
+       			   driver="org.postgresql.Driver"
+                   url="jdbc:postgresql://ec2-44-206-197-71.compute-1.amazonaws.com/d5rq8o52eacr8k"
+                   user = "snzyojrrgmxiog"
+                   password="f97a885181429218179ab9db94ff4fc6ab7ef611657375b7e35dad06697b711c"
+         />
+		
+		<sql:query dataSource="${ic}" var="oc">
+		    SELECT COUNT (productID) FROM product
+		</sql:query>
+		<sql:query dataSource="${ic}" var="oc2">
+ 			SELECT COUNT (categoryID) FROM category
+		</sql:query>
+				   
+	<section class="header"><!-- SIDEBAR -->
     <div id="main">
         <button class="openbtn" onclick="openNav()"><i class="fa fa-bars"></i></button>
     </div>
@@ -25,20 +41,26 @@
         <input type="submit" value="LOGOUT" onclick="return confirm('Do you want to log out ?');"><i class="fa-solid fa-right-from-bracket"></i>  
         </form>
         
-    </div></section><!-- SIDEBAR -->
-<div id="myMain">
-    <table style="width:100%">
-        <tr class="dash">
-            <td>900<img src= "shoe.png" alt="shoe icon"><br>
-                <p>TOTAL PRODUCT</p></td>
-            <td>0<img src= "statistic.png" alt="statistic icon"><br>
-                <p>TOTAL CATEGORY</p></td>
-        </tr>
-        <tr class="more">
-            <td>MORE INFO<a href="productList.jsp">&#10142;</a></td>
-            <td>MORE INFO<a href="categoryList.jsp">&#10142;</a></td>
-        </tr>
-    </table></div>
+    </div>
+    </section><!-- SIDEBAR -->
+	<div id="myMain">
+	    <table style="width:100%">
+	        <tr class="dash">
+	        <c:forEach var="result" items="${oc.rows}">
+	            <td><c:out value="${result.count}"/><img src= "shoe.png" alt="shoe icon"><br>
+	                <p>TOTAL PRODUCT</p></td>
+            </c:forEach>
+            <c:forEach var="result" items="${oc2.rows}">
+	            <td><c:out value="${result.count}"/><img src= "statistic.png" alt="statistic icon"><br>
+	                <p>TOTAL CATEGORY</p></td>
+             </c:forEach>
+	        </tr>
+	        <tr class="more">
+	            <td>MORE INFO<a href="productList.jsp">&#10142;</a></td>
+	            <td>MORE INFO<a href="categoryList.jsp">&#10142;</a></td>
+	        </tr>
+	    </table>
+	</div>
 </body>
 
 <style>
