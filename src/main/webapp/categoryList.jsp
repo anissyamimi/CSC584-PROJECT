@@ -320,7 +320,7 @@
 	  padding-top: 10px;
 	  padding-bottom: 15px;
 	  padding-left: 22px;
-	  padding-right: 75px;
+	  padding-right: 80px;
 	  text-decoration: none;
 	  font-size: 30px;
 	  display: absolute;
@@ -332,10 +332,11 @@
 	  background-color: black;
 	  text-align: right;
 	  font-family: 'Times New Roman', serif;
+	  border:none;
 	}
 	
 	.flg {
-	  margin-top: 230px;
+	  margin-top: 210px;
 	}
 	
 	.sidebar .closebtn {
@@ -356,7 +357,7 @@
 	  cursor: pointer;
 	  background-color: #111;
 	  color: white;
-	  padding: 5px 1320px 5px 10px;
+	  padding: 5px 1235px 5px 10px;
 	  border: none;
 	}
 	
