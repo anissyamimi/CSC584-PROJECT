@@ -37,9 +37,7 @@
     <div id="myMain">
         <h2>CATEGORY</h2><br>
             <a href="createCategory.jsp" class="btn">CREATE CATEGORY</a><br><br>
-            <span action="/action_page.php" class="search-container">
-                <button type="submit" class="srcbtn"><i class="fa fa-search"></i></button>
-                <input type="text" class="search" placeholder="Search.." name="search"></span><br>
+<br>
             
             <div style="overflow-x:auto;">
             <table id="store" style="text-align: center;">

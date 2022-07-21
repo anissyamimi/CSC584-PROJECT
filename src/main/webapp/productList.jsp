@@ -28,7 +28,10 @@
         <a href="Dashboard.jsp"><i class="fa-solid fa-magnifying-glass"></i>  DASHBOARD</a>
         <a href="productList.jsp"><i class="fas">&#xf49e;</i>   PRODUCT</a>
         <a href="staffInformation.jsp"><i class="fa-solid fa-user"></i>   PROFILE</a>
-        <a href="MainPage.jsp" onclick="return confirm('Do you want to log out ?');"><i class="fa-solid fa-right-from-bracket"></i>   LOGOUT</a>
+        <form method="get" action="StaffHandler">
+        <input type="hidden" name="action" value="logout">
+        <button href="" onclick="return confirm('Do you want to log out ?');"><i class="fa-solid fa-right-from-bracket" formaction="StaffHandler"></i>   LOGOUT</button>
+        </form>
 
     </div></section><!-- SIDEBAR -->
 <div id="myMain">
