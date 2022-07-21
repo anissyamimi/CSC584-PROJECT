@@ -11,6 +11,7 @@
 <head>
   <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://kit.fontawesome.com/9bff21277a.js"></script>
   <title>Update Staff Information Page</title>
 </head>
@@ -176,14 +177,14 @@
    }
   
   .sidebar a {
-      padding: 10px 25px;
+      padding: 10px 20px;
       text-decoration: none;
-      font-size: 10px;
       display: block;
       transition: 0.3s;
       cursor: pointer;
       color: white;
       height: 30px;
+      font-family: 'Times New Roman', serif;
    }
     
   .sidebar .closebtn {
@@ -204,7 +205,7 @@
       cursor: pointer;
       background-color: #111;
       color: white;
-      padding: 5px 10000px 5px 10px;
+      padding: 5px 1320px 5px 10px;
       border: none;
   }
   
@@ -245,45 +246,46 @@
 	text-align: center;
 	}
 
-.btn {
-	background-color: #000000;
-	color: white;
-	padding: 12px;
-	margin: 10px 10px;
-	justify-item: center;
-	border: none;
-	width: 90px;
-	height: 45px;
-	border-radius: 3px;
-	cursor: pointer;
-	font-size: 17px;
-	text-decoration:none;
+  .btn {
+	display: inline;
+    color: white;
+    background-color: black;
+    border-radius: 25px;
+    padding: 15px 10px;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 10px;
 	}
 	
-	.respond {
+   .respond {
       position: absolute;
-      right: 500px;
-  }
+      bottom: 0px;
+      right: 20px;
+    }
   
-.btn:hover {
+  .btn:hover {
 	background-color: #959595;
 	}
 	
-label {
+  label {
 	 margin-bottom: 2px;
 	 display: block;
 	 }
 
 		
-input[type=text], input[type=date], input[type=password], select, radio{
-	 width: 100%;
+  input[type=text], input[type=date], input[type=password], select, radio{
+	 width: 98%;
 	 margin-bottom: 25px;
 	 padding: 10px;
 	 border: 1px solid #ccc;
 	 border-radius: 3px;
 	 }
+	 
+  select {
+	width: 100%;
+}
 
-.center{
+  .center{
 	float: right;
 	width: 90%;
 	height: 100%;
@@ -300,7 +302,7 @@ input[type=text], input[type=date], input[type=password], select, radio{
 	margin-bottom: 50px;
 	}
 	
-	.lg {
+   .lg {
 	  padding-top: 10px;
 	  padding-bottom: 15px;
 	  padding-left: 22px;
@@ -318,7 +320,7 @@ input[type=text], input[type=date], input[type=password], select, radio{
 	  font-family: 'Times New Roman', serif;
 	}
 	
-	.flg {
+   .flg {
 	  margin-top: 230px;
 	}
     

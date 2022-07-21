@@ -39,8 +39,10 @@
             <a href="categoryList.jsp"><i class="fa fa-tag"></i>   CATEGORY</a>
             <a href="productList.jsp"><i class="fas">&#xf49e;</i>   PRODUCT</a>
             <a href="staffInformation.jsp"><i class="fa-solid fa-user"></i>   PROFILE</a>
-            <a href="MainPage.jsp" onclick="return confirm('Do you want to log out ?');"><i class="fa-solid fa-right-from-bracket"></i>   LOGOUT</a>
-
+            <form method="get" action="StaffHandler" class="flg">
+		        <input type="hidden" name="action" value="logoutStaff">
+		        <button type="submit" class="lg"  value="LOGOUT" onclick="return confirm('Do you want to log out ?');"><i class="fa fa-right-from-bracket"></i>   LOG OUT</button>
+		    </form>
         </div></section><!-- SIDEBAR -->
         
        <%
@@ -75,13 +77,14 @@
             <%=res.getString("productcolor")%><br>
             <label for="prodQuantity">Product Quantity </label>
             <%=res.getInt("productquantity")%><br>
-            <label for="available">Choose product availability:</label>
+            <label for="available">Product Availability:</label>
             <%=res.getString("productavailability")%><br>
-            <label for="category">Choose product availability:</label>
+            <label for="category">Product Category:</label>
             <%=res.getString("categoryname")%><br>
 
-            <button class="btn" onclick="window.location.href='productList.jsp';">BACK</button>
-            
+			<div class="respond">
+            	<button class="btn" onclick="window.location.href='productList.jsp';">BACK</button>
+            </div>
        </div>
         
            	<%
@@ -103,7 +106,7 @@
   label {
       font-size: 20px;
       font-weight: bold;
-      margin-left: 15px;
+      margin-left: 30px;
       margin-top: 15px;
       display: inline-block;
       width: 240px;
@@ -139,7 +142,7 @@
 	  color: white;
 	}
 	
-	input[type=text] {
+	input[type=text], select {
 	     width: 50%;
 	     padding: 5px 5px;
 	     box-sizing: border-box;
@@ -174,7 +177,7 @@
   .respond {
       position: absolute;
       top: 500px;
-      right: 20px;
+      right: 50px;
   }
   
   * {
@@ -230,7 +233,7 @@
       cursor: pointer;
       background-color: #111;
       color: white;
-      padding: 5px 10000px 5px 10px;
+      padding: 5px 1320px 5px 10px;
       border: none;
   }
   
@@ -277,6 +280,33 @@
   		position: absolute;
   		right: 370px;
   }
+  
+  .lg {
+	  padding-top: 10px;
+	  padding-bottom: 15px;
+	  padding-left: 22px;
+	  padding-right: 75px;
+	  text-decoration: none;
+	  font-size: 30px;
+	  display: absolute;
+	  transition: 0.3s;
+	  cursor: pointer;
+	  color: white;
+	  height: 60px;
+	  margin-right: 0px;
+	  background-color: black;
+	  text-align: right;
+	  font-family: 'Times New Roman', serif;
+	}
+	
+	.flg {
+	  margin-top: 230px;
+	}
+    
+    #Sidebar button:hover{
+  		background-color: #404040;
+  		color: white;
+  	}
   
 </style>
 <script>

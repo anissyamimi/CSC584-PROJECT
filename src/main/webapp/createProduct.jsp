@@ -154,7 +154,8 @@
       padding: 15px 10px;
       text-align: center;
       cursor: pointer;
-      margin-left: 10px;
+      float: right;
+	  margin-right: 30px;
   }
   
   .respond {
@@ -216,7 +217,7 @@
       cursor: pointer;
       background-color: #111;
       color: white;
-      padding: 5px 10000px 5px 10px;
+      padding: 5px 1320px 5px 10px;
       border: none;
   }
   

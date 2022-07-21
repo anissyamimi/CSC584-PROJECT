@@ -92,7 +92,6 @@
            
             <br> 
 	        <div class="respond">
-            	<a href="#" class="btn">BACK</a>
 				<button  class="btn"  type="update" formaction="updateStaff.jsp?id=${result.staffID}">UPDATE
 				</button>
         	</div>
@@ -159,7 +158,7 @@
       cursor: pointer;
       background-color: #111;
       color: white;
-      padding: 5px 10000px 5px 10px;
+      padding: 5px 1320px 5px 10px;
       border: none;
   }
   

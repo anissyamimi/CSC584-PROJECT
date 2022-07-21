@@ -37,7 +37,7 @@
 		        </form>
             </div></section><!-- SIDEBAR -->
     <div id="myMain">
-        <h2>CATEGORY</h2><br>
+        <h2>CATEGORY LIST</h2><br>
             <a href="createCategory.jsp" class="btn">CREATE CATEGORY</a><br><br>
 <br>
             <div style="overflow-x:auto;">
@@ -78,9 +78,10 @@
 	}
 	
 	h2 {
-	    margin-top: 40px;
-	    margin-left: 20px;
-	    font-size: 40px;
+	    text-align: center;
+        font-size: 40px;
+        margin-top: 30px;
+        margin-bottom: 10px;
 	}
 	
 	.btn {
@@ -91,8 +92,14 @@
 	    text-align: center;
 	    cursor: pointer;
 	    text-decoration: none;
-	    margin-left: 20px;
+	    float: right;
+	    margin-right: 30px;
 	}
+	
+	.btn:hover {
+    	background-color: #404040;
+		box-shadow: 14px 4px 15px 8px rgba(0,0,0,0.99);
+    }
 	
 	.search-container {
 	    float: right;
@@ -155,7 +162,7 @@
     table {
         width: 100%;
         border-collapse: collapse;
-        max-width: 900px;
+        max-width: 1200px;
         margin-top: 35px;
         margin-left: auto;
         margin-right: auto;
@@ -163,6 +170,7 @@
     
     td {
     	text-align: left;
+    	padding-left: 25px;
     }
 
     #store tr:nth-child(even) {
@@ -348,7 +356,7 @@
 	  cursor: pointer;
 	  background-color: #111;
 	  color: white;
-	  padding: 5px 10000px 5px 10px;
+	  padding: 5px 1320px 5px 10px;
 	  border: none;
 	}
 	

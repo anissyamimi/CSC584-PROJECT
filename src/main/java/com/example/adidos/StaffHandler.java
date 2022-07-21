@@ -234,7 +234,7 @@ public class StaffHandler extends HttpServlet {
     		         	session.setAttribute("staffRace",sta.getStaffRace());
     		         	session.setAttribute("staffPassword",sta.getStaffPassword());
          	     
-                        response.sendRedirect("staffInformation.jsp");
+                        response.sendRedirect("Dashboard.jsp");
                         System.out.println(stmt);
                     }
                     else{}

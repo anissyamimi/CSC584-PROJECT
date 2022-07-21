@@ -77,23 +77,26 @@
             <input type="text" id="prodColor" name="productcolor" value="<%=res.getString("productcolor")%>"><br>
             <label for="prodQuantity">Product Quantity </label>
             <input type="text" id="prodQuantity" name="productquantity" value="<%=res.getInt("productquantity")%>"><br>
-            <label for="cars">Choose product availability:</label>
+            <label for="cars">Product Availability </label>
 
 			<select name="productavailability">
 			  <option  selected hidden value="<%=res.getString("productavailability")%>"><%=res.getString("productavailability")%></option>
 			  <option value="AVAILABLE">AVAILABLE</option>
 			  <option value="NOT AVAILABLE">NOT AVAILABLE</option>
-			</select>
+			</select><br>
 			
+			<label for="cars">Product Category </label>
 			<select name="categoryid">
 			  <option  selected hidden value="<%=res.getString("categoryid")%>" ><%=res.getString("categoryname")%></option>
 			<c:forEach var="result" items="${oc.rows}">		
 			  <option value="${result.categoryid}">${result.categoryname}</option>
 			 </c:forEach>
 			</select>
-            <input type="hidden" name="action" value="updateProduct">
-            <button class="btn">BACK</button>
-            <button class="btn">UPDATE PRODUCT</button>
+			<div class="respond">
+	            <input type="hidden" name="action" value="updateProduct">
+	            <button class="btn">BACK</button>
+	            <button class="btn">UPDATE PRODUCT</button>
+            </div>
         </form></div>
         
            	<%
@@ -115,7 +118,7 @@
   label {
       font-size: 20px;
       font-weight: bold;
-      margin-left: 15px;
+      margin-left: 50px;
       margin-top: 15px;
       display: inline-block;
       width: 240px;
@@ -151,7 +154,7 @@
 	  color: white;
 	}
 	
-	input[type=text] {
+	input[type=text], select {
 	     width: 50%;
 	     padding: 5px 5px;
 	     box-sizing: border-box;
@@ -242,7 +245,7 @@
       cursor: pointer;
       background-color: #111;
       color: white;
-      padding: 5px 10000px 5px 10px;
+      padding: 5px 1320px 5px 10px;
       border: none;
   }
   
