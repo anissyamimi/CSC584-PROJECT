@@ -26,11 +26,12 @@
         <a href="#" class="closebtn" onclick="closeNav()">x</a>
         <h1 class="ad">ADMIN</h1>
         <a href="Dashboard.jsp"><i class="fa-solid fa-magnifying-glass"></i>  DASHBOARD</a>
+        <a href="categoryList.jsp"><i class="fa fa-tag"></i>   CATEGORY</a>
         <a href="productList.jsp"><i class="fas">&#xf49e;</i>   PRODUCT</a>
         <a href="staffInformation.jsp"><i class="fa-solid fa-user"></i>   PROFILE</a>
         <form method="get" action="StaffHandler">
-        <input type="hidden" name="action" value="logout">
-        <button href="" onclick="return confirm('Do you want to log out ?');"><i class="fa-solid fa-right-from-bracket" formaction="StaffHandler"></i>   LOGOUT</button>
+        <input type="hidden" name="action" value="logoutStaff">
+        <input type="submit" value="LOGOUT" onclick="return confirm('Do you want to log out ?');"><i class="fa-solid fa-right-from-bracket"></i>  
         </form>
 
     </div></section><!-- SIDEBAR -->

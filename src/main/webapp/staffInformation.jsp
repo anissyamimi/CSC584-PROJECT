@@ -40,8 +40,10 @@
 				<a href="categoryList.jsp"><i class="fa fa-tag"></i>   CATEGORY</a>
 				<a href="productList.jsp"><i class="fas">&#xf49e;</i>   PRODUCT</a>
 				<a href="staffInformation.jsp"><i class="fa-solid fa-user"></i>   PROFILE</a>
-				<a href="MainPage.jsp" onclick="return confirm('Do you want to log out ?');"><i class="fa-solid fa-right-from-bracket"></i>   LOGOUT</a>
-
+		        <form method="get" action="StaffHandler">
+		        <input type="hidden" name="action" value="logoutStaff">
+		        <input type="submit" value="LOGOUT" onclick="return confirm('Do you want to log out ?');"><i class="fa-solid fa-right-from-bracket"></i>  
+		        </form>
 			</div></section><!-- SIDEBAR -->
 	
 	<div id="myMain">
