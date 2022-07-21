@@ -20,8 +20,10 @@
             <a href="categoryList.jsp"><i class="fa fa-tag"></i>   CATEGORY</a>
             <a href="productList.jsp"><i class="fas">&#xf49e;</i>   PRODUCT</a>
             <a href="staffInformation.jsp"><i class="fa-solid fa-user"></i>   PROFILE</a>
-            <a href="MainPage.jsp" onclick="return confirm('Do you want to log out ?');"><i class="fa-solid fa-right-from-bracket"></i>   LOGOUT</a>
-
+            <form method="get" action="StaffHandler" class="flg">
+		        <input type="hidden" name="action" value="logoutStaff">
+		        <button type="submit" class="lg"  value="LOGOUT" onclick="return confirm('Do you want to log out ?');"><i class="fa fa-right-from-bracket"></i>   LOG OUT</button>
+		    </form>
         </div></section><!-- SIDEBAR -->
 <div id="myMain">
         <h2>CREATE CATEGORY</h2>
@@ -32,7 +34,7 @@
             <label for="status" class="status">Status</label>
             
             <input type="checkbox" id="status1" name="categoryStatus" value="ACTIVE">
-            <label for="status1" class="space"><span class="status1">&#9679;</span>ACTIVE</label>
+            <label for="status1"><span class="status1">&#9679;</span>ACTIVE</label>
             
             <input type="checkbox" id="status2" name="categoryStatus" value="INACTIVE">
             <label for="status2"><span class="status2">&#9679;</span>INACTIVE</label>
@@ -65,7 +67,7 @@
   }
   
   .status {
-      margin-right: 115px;
+      margin-right: 145px;
   }
   
   input[type=text] {
@@ -83,27 +85,27 @@
   
   input[type=checkbox] {
       margin-top: 15px;
-      margin-left: 0px;
+      padding-left: 0;
   } 
   
   input[type=text]:focus {
       border: 2px solid rgb(160, 154, 154);
   }
-  
-  .space {
-      margin-left: 25px;
-  }
-  
+ 
   .status1 {
       color: rgb(20, 190, 20);
       font-size: 28px;
-      margin-right: 10px;
+      padding-right: 5px;
   }
   
   .status2 {
       color: red;
       font-size: 28px;
-      margin-right: 10px;
+      padding-right: 5px;
+  }
+  
+  #status2 {
+  	  margin-left: 80px;
   }
   
   .btn {
@@ -158,6 +160,27 @@
       height: 30px;
    }
     
+   .lg {
+	  padding-top: 10px;
+	  padding-bottom: 15px;
+	  padding-left: 22px;
+	  padding-right: 75px;
+	  text-decoration: none;
+	  font-size: 30px;
+	  display: absolute;
+	  transition: 0.3s;
+	  cursor: pointer;
+	  color: white;
+	  height: 60px;
+	  margin-right: 0px;
+	  background-color: black;
+	  text-align: right;
+	}
+	
+	.flg {
+	  margin-top: 230px;
+	} 
+   
   .sidebar .closebtn {
       position: absolute;
       top: 0;
@@ -205,6 +228,11 @@
   		background-color: #404040;
   		color: white;
   }
+  
+  #Sidebar button:hover{
+  		background-color: #404040;
+  		color: white;
+  	}
 </style>
 <script>
       function openNav() {

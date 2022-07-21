@@ -97,7 +97,7 @@
 			<input type="password" id="psw2" name="password" placeholder= "Re-Enter Password" required>
            
             <input type="hidden" name="action" value="createStaff">
-         <button type="submit" class="button2" name="submit" formaction="StaffHandler" onclick="matchPassword()" >REGISTER</button><br><br>
+         	<button type="submit" class="btn" name="submit" formaction="StaffHandler" onclick="matchPassword()" >REGISTER</button><br><br>
       </form>
     </div></div>
 </body>
@@ -145,13 +145,32 @@ label {
 	 display: block;
 	 }
 		
-input[type=text], input[type=date], input[type=password], select, radio{
+input[type=text], input[type=date], input[type=password], radio{
+	 width: 98%;
+	 margin-bottom: 25px;
+	 padding: 10px;
+	 border: 1px solid #ccc;
+	 border-radius: 3px;
+	 text-transform: uppercase;
+	 }
+	 
+select {
 	 width: 100%;
 	 margin-bottom: 25px;
 	 padding: 10px;
 	 border: 1px solid #ccc;
 	 border-radius: 3px;
+	 text-transform: uppercase;
+}
+	 
+#male {
+	 margin-right: 10px; 
 	 }
+	 
+#female {
+	margin-right: 10px;
+	margin-left: 25px;
+}
 
 .center{
 	float: right;

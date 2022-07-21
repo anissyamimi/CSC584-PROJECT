@@ -31,9 +31,9 @@
                 <a href="categoryList.jsp"><i class="fa fa-tag"></i>   CATEGORY</a>
                 <a href="productList.jsp"><i class="fas">&#xf49e;</i>   PRODUCT</a>
                 <a href="staffInformation.jsp"><i class="fa-solid fa-user"></i>   PROFILE</a>
-		        <form method="get" action="StaffHandler">
-		        <input type="hidden" name="action" value="logoutStaff">
-		        <input type="submit" value="LOGOUT" onclick="return confirm('Do you want to log out ?');"><i class="fa-solid fa-right-from-bracket"></i>  
+		        <form method="get" action="StaffHandler" class="flg">
+			        <input type="hidden" name="action" value="logoutStaff">
+			        <button type="submit" class="lg"  value="LOGOUT" onclick="return confirm('Do you want to log out ?');"><i class="fa fa-right-from-bracket"></i>   LOG OUT</button>
 		        </form>
             </div></section><!-- SIDEBAR -->
     <div id="myMain">
@@ -243,9 +243,11 @@
 	    text-align: center;
 	    cursor: pointer;
 	    text-decoration: none;
+	    background: none;
+	    border: none;
 	}
 	
-	.action a {
+	.action {
 	    text-decoration: none;
 	    color: black;
 	}
@@ -257,61 +259,6 @@
 	    cursor: pointer;
 	    border: none;
 	    background-color: transparent;
-	}
-	
-	.popup .overlay {
-	    position: fixed;
-	    top: 0px;
-	    left: 0px;
-	    width: 100vw;
-	    height: 100vh;
-	    background: white;
-	    z-index: 1;
-	    display: none;
-	}
-	
-	.popup .content {
-	    position: absolute;
-	    top: 50%;
-	    left: 50%;
-	    transform: translate(-50%,-50%) scale(0);
-	    background: white;
-	    width: 400px;
-	    height: 200px;
-	    z-index: 2;
-	    padding: 20px;
-	    box-sizing: border-box;
-	    border-radius: 25px;
-	    border: 2px solid black;
-	}
-	
-	.popup .close-btn {
-	    position: absolute;
-	    right: 20px;
-	    top: 20px;
-	    width: 30px;
-	    background-color: black;
-	    color: white;
-	    font-size: 25px;
-	    font-weight: 600;
-	    line-height: 30px;
-	    text-align: center;
-	    border-radius: 50%;
-	    cursor: pointer;
-	}
-	
-	.popup.active .content {
-	    display: block;
-	}
-	
-	.popup.active .content {
-	    transition: all 100ms ease-in-out;
-	    transform: translate(-50%,-50%) scale(1);
-	}
-	
-	h4 {
-	    margin-top: 70px;
-	    position: inline;
 	}
 	
 	.symbol1 {
@@ -355,6 +302,27 @@
 	  cursor: pointer;
 	  color: white;
 	  height: 30px;
+	}
+	
+	.lg {
+	  padding-top: 10px;
+	  padding-bottom: 15px;
+	  padding-left: 22px;
+	  padding-right: 75px;
+	  text-decoration: none;
+	  font-size: 30px;
+	  display: absolute;
+	  transition: 0.3s;
+	  cursor: pointer;
+	  color: white;
+	  height: 60px;
+	  margin-right: 0px;
+	  background-color: black;
+	  text-align: right;
+	}
+	
+	.flg {
+	  margin-top: 230px;
 	}
 	
 	.sidebar .closebtn {
@@ -405,6 +373,11 @@
 	}
 	
 	#Sidebar a:hover{
+  		background-color: #404040;
+  		color: white;
+  	}
+  	
+  	#Sidebar button:hover{
   		background-color: #404040;
   		color: white;
   	}
