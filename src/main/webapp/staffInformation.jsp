@@ -1,5 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.Connection" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +15,20 @@
   <title>Staff Information Page</title>
 </head>
 <body>
+    <%
+    Class.forName("org.postgresql.Driver");
+	String DB_CONNECTION = "jdbc:postgresql://ec2-44-206-197-71.compute-1.amazonaws.com/d5rq8o52eacr8k";
+	String DB_USER = "snzyojrrgmxiog";
+	String DB_PASSWORD ="f97a885181429218179ab9db94ff4fc6ab7ef611657375b7e35dad06697b711c";
+
+	String id=request.getParameter("id");
+    String sql= "SELECT * FROM staff WHERE staffID='"+ id +"'" ;
+    Connection con=DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
+    Statement stmt=con.createStatement();
+    ResultSet rs=stmt.executeQuery(sql);
+    while(rs.next())
+    {
+%>
 	<section class="header"><!-- SIDEBAR -->
 	        <div id="main">
 	            <button class="openbtn" onclick="openNav()"><i class="fa fa-bars"></i></button>
@@ -29,82 +49,45 @@
 	<div class="h">STAFF INFORMATION</div>
       <form action="" name="myForm" method="post" onsubmit="return validation()">
       		<br>
-            <label  for="staffName">Full Name</label>
-            <input type="text" name="staffName" placeholder="Enter your full name">
+            <label  for="staffName">Full Name</label><%=rs.getString("staffName") %>
             
             <br><br>
-         	<label for="idno">Identification Number</label>
-			<input type="text" name="idno" id="idno" placeholder="Enter your mykad identification number (without -)">
+         	<label for="idno">Identification Number</label><%=rs.getString("staffID") %>
 			
 			<br><br>
-			<label for="phoneno">Phone Number</label>
-			<input type="text" name="phone" id="phoneno" placeholder="Enter your phone number (without -)">
+			<label for="phoneno">Phone Number</label><%=rs.getString("staffPhone") %>
 			
 			<br><br>
-			<label for="address">Address</label>
-			<input type="text" name="address" class="forInput" id="address" placeholder="Enter your address">
+			<label for="address">Address</label><%=rs.getString("staffAddress") %>
 			
 			<br><br>
-			<label for="city">City</label>
-			<input type="text" name="city" id="city" placeholder="Enter your city">
+			<label for="city">City</label><%=rs.getString("staffCity") %>
 			
 			<br><br>
-			<label for="postcode">Postcode</label>
-			<input type="text" name="postcode" id="postcode" placeholder="Enter your postcode">
+			<label for="postcode">Postcode</label><%=rs.getInt("staffPostcode") %>
 			
-			<label for="state">State</label>
-	      	<select name="state" id="state" class="forInput">
-	          <option value="">--State--</option>
-	          <option value="Johor">Johor</option>
-	          <option value="Kedah">Kedah</option>
-	          <option value="Kelantan">Kelantan</option>
-	          <option value="Kuala Lumpur">Kuala Lumpur</option>
-	          <option value="Melaka">Melaka</option>
-	          <option value="Negeri Sembilan">Negeri Sembilan</option>
-	          <option value="Pahang">Pahang</option>
-	          <option value="Perak">Perak</option>
-	          <option value="Perlis">Perlis</option>
-	          <option value="Pulau Pinang">Pulau Pinang</option>
-	          <option value="Sabah">Sabah</option>
-	          <option value="Sarawak">Sarawak</option>
-	          <option value="Selangor">Selangor</option>
-	          <option value="Terengganu">Terengganu</option>
-	     	</select>
+			<label for="state">State</label><%=rs.getString("staffState") %>
             
             <br>
-            <label for="email">Email</label>
-            <input type="text" name="email" placeholder="Enter your email">
+            <label for="email">Email</label><%=rs.getString("staffEmail") %>
 			
 			<br><br>
-			<label for="birthday">Birth Date</label>
-	  		<input type="date" id="birthday" name="birthday">
+			<label for="birthday">Birth Date</label><%=rs.getDate("staffDate") %>
 	  		
 	  		<br><br>
-			<label for="gender" class="gender">Gender</label>
-			<input type="radio" name="male" id="male" value="male">Male
-			<input type="radio" name="female" id="female" value="female" >Female
+			<label for="gender" class="gender">Gender</label><%=rs.getString("staffGender") %>
 			
 			<br><br><br>
-			<label for="MaritalStatus">Marital Status</label>
-	      	<select name="maritalstatus" id="maritalstatus">
-	          <option value="">--Marital Status--</option>
-	          <option value="Single">Single</option>
-	          <option value="Married">Married</option>
-	          <option value="Divorced">Divorced</option>
-	          <option value="Widowed">Widowed</option>
-	     	</select>
+			<label for="MaritalStatus">Marital Status</label><%=rs.getString("staffMaritalStatus") %>
 			
 			<br>
-			<label  for="race">Race</label>
-	  		<input type="text" id="race" name="race" placeholder="Enter your race">
+			<label  for="race">Race</label><%=rs.getString("staffRace") %>
 	  		
 	  		<br><br>
-	  		<label for="nationality">Nationality</label>
-	  		<input type="text" id="nationality" name="nationality" placeholder="Enter your nationality">
+	  		<label for="nationality">Nationality</label><%=rs.getString("staffNationality") %>
 	  		
 	  		<br><br>
-	  		<label for="religion">Religion</label>
-	  		<input type="text" id="religion" name="religion" placeholder="Enter your religion">
+	  		<label for="religion">Religion</label><%=rs.getString("staffReligion") %>
            
             <div class="h">CHANGE PASSWORD</div><br>
 			<label for="curpassword">CURRENT PASSWORD</label>
@@ -122,7 +105,7 @@
             	<a href="#" class="btn">BACK</a>
 	        	<button class="btn">UPDATE</button>
         	</div>
-	        
+        <%} %>
       </form>
     </div></div>
 </body>
