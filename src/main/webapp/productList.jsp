@@ -34,9 +34,7 @@
 <div id="myMain">
     <h2>PRODUCT</h2><br>
     <a href="createProduct.jsp" class="btn">CREATE PRODUCT</a><br><br>
-    <span action="/action_page.php" class="search-container">
-                <button type="submit" class="srcbtn"><i class="fa fa-search"></i></button>
-                <input type="text" class="search" placeholder="Search.." name="search"></span><br>
+
 
     <table id="store">
         <tr>
@@ -68,8 +66,8 @@
        res = stat.executeQuery(data);
        while(res.next()){
        %>
-        <tr>
-            <td><a href="prodDetails.jsp"><%=res.getString("productid")%></a></td>
+        <tr id="myUL">
+            <td><%=res.getString("productid")%></td>
             <td><%=res.getString("productname")%></td>
             <td><%=res.getString("productprice")%></td>
             <td><%=res.getString("productcolor")%></td>
@@ -83,11 +81,12 @@
             <input type="hidden" name="action" value="deleteProduct">
             <button class="action1" onclick="return confirm('Are you sure you want to delete?');">&#128465;</button>
      		</form>
-     	<% 
-       }
-       %>           
+         
             </td>
         </tr>
+       <% 
+       }
+       %>  
 
     </table>
 </div>
@@ -418,5 +417,7 @@
         document.getElementById("Sidebar").style.width = "0";
         document.getElementById("myMain").style.marginLeft= "0";
     }
+    
+
 </script>
 </html>
