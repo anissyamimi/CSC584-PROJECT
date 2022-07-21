@@ -31,6 +31,7 @@
                 <a href="categoryList.jsp"><i class="fa fa-tag"></i>   CATEGORY</a>
                 <a href="productList.jsp"><i class="fas">&#xf49e;</i>   PRODUCT</a>
                 <a href="staffInformation.jsp"><i class="fa-solid fa-user"></i>   PROFILE</a>
+                <a href="storeList.jsp"><i style='font-size:24px' class="fas">&#xf54f;</i>  STORE</a>
 		        <form method="get" action="StaffHandler" class="flg">
 			        <input type="hidden" name="action" value="logoutStaff">
 			        <button type="submit" class="lg"  value="LOGOUT" onclick="return confirm('Do you want to log out ?');"><i class="fa fa-right-from-bracket"></i>   LOG OUT</button>
