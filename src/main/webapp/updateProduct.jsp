@@ -5,6 +5,8 @@
 <%@page import="java.sql.Connection" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,9 +15,18 @@
         <script src="https://kit.fontawesome.com/9bff21277a.js"></script>
         <title>update product page</title>
     </head>
-    
-    
     <body>
+    
+       <sql:setDataSource var="ic" driver="org.postgresql.Driver"
+          url="jdbc:postgresql://ec2-44-206-197-71.compute-1.amazonaws.com/d5rq8o52eacr8k"
+          user = "snzyojrrgmxiog"
+          password="f97a885181429218179ab9db94ff4fc6ab7ef611657375b7e35dad06697b711c"/>
+			
+		<sql:query dataSource="${ic}" var="oc">
+		    SELECT * from category
+		</sql:query>
+
+		
       <section class="header"><!-- SIDEBAR -->
         <div id="main">
             <button class="openbtn" onclick="openNav()"><i class="fa fa-bars"></i></button>
@@ -67,14 +78,16 @@
             <label for="cars">Choose product availability:</label>
 
 			<select name="productavailability">
-			  <option  selected value="<%=res.getString("categorystatus")%>"><%=res.getString("categorystatus")%></option>
-			  <option value="ACTIVE">Active</option>
+			  <option  selected hidden value="<%=res.getString("productavailability")%>"><%=res.getString("productavailability")%></option>
+			  <option value="AVAILABLE">AVAILABLE</option>
+			  <option value="NOT AVAILABLE">NOT AVAILABLE</option>
 			</select>
 			
 			<select name="categoryid">
-			  <option  selected disabled hidden value="<%=res.getString("categoryname")%>" ><%=res.getString("categoryname")%></option>
-			  <option value="1">LEBOVO</option>
-			  <option value="3">DP</option>
+			  <option  selected hidden value="<%=res.getString("categoryid")%>" ><%=res.getString("categoryname")%></option>
+			<c:forEach var="result" items="${oc.rows}">		
+			  <option value="${result.categoryid}">${result.categoryname}</option>
+			 </c:forEach>
 			</select>
             <input type="hidden" name="action" value="updateProduct">
             <button class="btn">BACK</button>

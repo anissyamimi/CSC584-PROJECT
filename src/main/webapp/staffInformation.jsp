@@ -52,43 +52,43 @@
       <form action="" name="myForm" method="post" onsubmit="return validation()">
       <input type="hidden" name="id" value='<%=rs.getString("staffID")%>'/>
       		<br>
-            <label  for="staffName">FULL NAME: <%=rs.getString("staffName")%></label>
+            <label  for="staffName"><b>FULL NAME:</b> <%=rs.getString("staffName")%></label>
             
             <br>
-         	<label for="idno">IDENTIFICATION NUMBER: <%=rs.getString("staffID")%></label>
+         	<label for="idno"><b>IDENTIFICATION NUMBER:</b> <%=rs.getString("staffID")%></label>
 			
 			<br>
-			<label for="phoneno">PHONE NUMBER: <%=rs.getString("staffPhone")%></label>
+			<label for="phoneno"><b>PHONE NUMBER:</b> <%=rs.getString("staffPhone")%></label>
 			
 			<br>
-			<label for="address">ADDRESS: <%=rs.getString("staffAddress")%></label>
+			<label for="address"><b>ADDRESS:</b> <%=rs.getString("staffAddress")%></label>
 			
 			<br>
-			<label for="city">CITY: <%=rs.getString("staffCity")%></label>
+			<label for="city"><b>CITY:</b> <%=rs.getString("staffCity")%></label>
 			
 			<br>
-			<label for="postcode">POSTCODE: <%=rs.getInt("staffPostcode")%></label>
+			<label for="postcode"><b>POSTCODE:</b> <%=rs.getInt("staffPostcode")%></label>
 			
 			<br>
-			<label for="state">STATE: <%=rs.getString("staffState")%></label>
+			<label for="state"><b>STATE:</b> <%=rs.getString("staffState")%></label>
             
             <br>
-            <label for="email">EMAIL: <%=rs.getString("staffEmail")%></label>
+            <label for="email"><b>EMAIL:</b> <%=rs.getString("staffEmail")%></label>
 			
 			<br>
-			<label for="birthday">BIRTHDATE: <%=rs.getString("staffBirthDate")%></label>
+			<label for="birthday"><b>BIRTHDATE:</b> <%=rs.getString("staffBirthDate")%></label>
 	  		
 	  		<br>
-			<label for="gender" class="gender">GENDER: <%=rs.getString("staffGender")%></label>
+			<label for="gender" class="gender"><b>GENDER:</b> <%=rs.getString("staffGender")%></label>
 			
 			<br>
-			<label for="MaritalStatus">MARITAL STATUS: <%=rs.getString("staffMaritalStatus")%></label>
+			<label for="MaritalStatus"><b>MARITAL STATUS:</b> <%=rs.getString("staffMaritalStatus")%></label>
 			
 			<br>
-			<label  for="race">RACE: <%=rs.getString("staffRace")%></label>
+			<label  for="race"><b>RACE:</b> <%=rs.getString("staffRace")%></label>
 	  		
 	  		<br>
-	  		<label for="nationality">NATIONALITY: <%=rs.getString("staffNationality")%></label>
+	  		<label for="nationality"><b>NATIONALITY:</b> <%=rs.getString("staffNationality")%></label>
            
             <br> 
 	        <div class="respond">
