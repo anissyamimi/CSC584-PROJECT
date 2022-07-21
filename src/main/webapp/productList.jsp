@@ -5,6 +5,7 @@
 <%@page import="java.sql.Statement" %>
 <%@page import="java.sql.Connection" %>
 <%@page import="java.sql.PreparedStatement" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
        
 <!DOCTYPE html>
 <html>
@@ -70,10 +71,11 @@
        res = stat.executeQuery(data);
        while(res.next()){
        %>
+       
         <tr id="myUL">
             <td><a href="prodDetails.jsp?id=<%=res.getString("productid")%>"><%=res.getString("productid")%></a></td>
             <td><%=res.getString("productname")%></td>
-            <td><%=res.getString("productprice")%></td>
+            <td>RM<fmt:formatNumber type="number" maxFractionDigits="2" minFractionDigits="2" value='<%=res.getFloat("productprice")%>'/></td>
             <td><%=res.getString("productcolor")%></td>
             <td><%=res.getString("productquantity")%></td>
             <td><%=res.getString("categoryname")%></td>

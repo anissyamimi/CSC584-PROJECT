@@ -14,7 +14,7 @@
         <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://kit.fontawesome.com/9bff21277a.js"></script>
-        <title>product details page</title>
+        <title>Product details page</title>
     </head>
     <body>
     
@@ -68,17 +68,17 @@
 
 			<input type="hidden" name="id" value="<%=res.getInt("productid")%>" disabled>
             <label for="prodName">Product Name</label>
-            <input type="text" id="prodName" name="productname" value="<%=res.getString("productname")%>" disabled style="color: black;"><br>
+            <%=res.getString("productname")%> <br>
             <label for="prodPrice" id="prodPrice">Product Price</label>
-            <input type="text" id="prodPrice" name="productprice" value="<%=res.getString("productprice")%>" disabled style="color: black;"><br>
-            <label for="prodColor">Product Color </label>
-            <input type="text" id="prodColor" name="productcolor" value="<%=res.getString("productcolor")%>" disabled style="color: black;"><br>
+			RM<fmt:formatNumber type="number" maxFractionDigits="2" minFractionDigits="2" value='<%=res.getFloat("productprice")%>'/><br>         
+			<label for="prodColor">Product Color </label>
+            <%=res.getString("productcolor")%><br>
             <label for="prodQuantity">Product Quantity </label>
-            <input type="text" id="prodQuantity" name="productquantity" value="<%=res.getInt("productquantity")%>" disabled style="color: black;"><br>
+            <%=res.getInt("productquantity")%><br>
             <label for="available">Choose product availability:</label>
-            <input type="text" id="productavailability" name="productavailability" value="<%=res.getString("productavailability")%>" disabled style="color: black;"><br>
+            <%=res.getString("productavailability")%><br>
             <label for="category">Choose product availability:</label>
-            <input type="text" id="categoryid" name="categoryid" value="<%=res.getString("categoryname")%>" disabled style="color: black;"><br>
+            <%=res.getString("categoryname")%><br>
 
             <button class="btn" onclick="window.location.href='productList.jsp';">BACK</button>
             

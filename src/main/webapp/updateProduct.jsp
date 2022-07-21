@@ -72,7 +72,7 @@
             <label for="prodName">Product Name</label>
             <input type="text" id="prodName" name="productname" value="<%=res.getString("productname")%>"><br>
             <label for="prodPrice" id="prodPrice">Product Price</label>
-            <input type="text" id="prodPrice" name="productprice" value="<%=res.getString("productprice")%>"><br>
+            <input type="text" id="prodPrice" name="productprice" value="<%=res.getString("productprice")%>" step='0.01'><br>
             <label for="prodColor">Product Color </label>
             <input type="text" id="prodColor" name="productcolor" value="<%=res.getString("productcolor")%>"><br>
             <label for="prodQuantity">Product Quantity </label>
