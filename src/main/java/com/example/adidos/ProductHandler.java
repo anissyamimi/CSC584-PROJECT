@@ -61,9 +61,7 @@ public class ProductHandler extends HttpServlet {
                 	deleteProduct(request,response);
                     break;
 
-                    /*case "cancel":
-                    cancel(request, response);
-                    break;*/
+
 
             }
 
@@ -75,6 +73,7 @@ public class ProductHandler extends HttpServlet {
     private void updateProduct(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 		// TODO Auto-generated method stub
     	
+		HttpSession session = request.getSession();
         String productname = request.getParameter("productname");
         float productprice = Float.parseFloat(request.getParameter("productprice"));
         String productcolor = request.getParameter("productcolor");
@@ -82,6 +81,8 @@ public class ProductHandler extends HttpServlet {
         String productavailability = request.getParameter("productavailability");
         int categoryid = Integer.parseInt(request.getParameter("categoryid"));
         int productid = Integer.parseInt(request.getParameter("id"));
+        String id = (String) session.getAttribute("staffid");
+
 
 
         
@@ -93,6 +94,9 @@ public class ProductHandler extends HttpServlet {
         pdt.setProductQuantity(productquantity);
         pdt.setProductAvailability(productavailability);
         pdt.setCategoryID(categoryid);
+        pdt.setStaffID(id);
+        int storeid = Integer.parseInt(request.getParameter("storeid"));
+        pdt.setStoreID(storeid);
 
 
 
@@ -106,13 +110,17 @@ public class ProductHandler extends HttpServlet {
 
 	private void createProduct(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
-
+		
+		
+		HttpSession session = request.getSession();
         String productname = request.getParameter("productname");
         float productprice = Float.parseFloat(request.getParameter("productprice"));
         String productcolor = request.getParameter("productcolor");
         int productquantity = Integer.parseInt(request.getParameter("productquantity"));
         String productavailability = request.getParameter("productavailability");
         int categoryid = Integer.parseInt(request.getParameter("categoryid"));
+        int storeid = Integer.parseInt(request.getParameter("storeid"));
+        String id = (String) session.getAttribute("staffID");
 
 
         
@@ -123,6 +131,8 @@ public class ProductHandler extends HttpServlet {
         pdt.setProductQuantity(productquantity);
         pdt.setProductAvailability(productavailability);
         pdt.setCategoryID(categoryid);
+        pdt.setStaffID(id);
+        pdt.setStoreID(storeid);
 
 
 
@@ -138,38 +148,5 @@ public class ProductHandler extends HttpServlet {
         response.sendRedirect("productList.jsp");
     }
     
-    /*
-    private void deleteAnnouncement(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException {
-        int id = Integer.parseInt(request.getParameter("aId"));
-        ad.deleteAnnouncement(id);
-        response.sendRedirect("Announcement.jsp");
-    }
-    private void updateAnnouncement(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        String pic = request.getParameter("aPicture");
-        String title = request.getParameter("aTitle");
-        String desc = request.getParameter("aDesc");
-        String date = request.getParameter("aDate");
-        String timme = request.getParameter("aTime");
-
-        Announcement anc = new Announcement();
-        anc.setId(id);
-        anc.setPicture(pic);
-        anc.setTitle(title);
-        anc.setDescr(desc);
-        anc.setDate(Date.valueOf(date));
-        anc.setTime(timme);
-
-        ad.updateAnnouncement(anc);
-
-        response.sendRedirect("Announcement.jsp");
-    }
-
-    private void cancel(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException {
-        response.sendRedirect("Announcement.jsp");
-    }*/
 }
 

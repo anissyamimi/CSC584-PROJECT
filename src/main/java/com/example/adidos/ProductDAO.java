@@ -29,7 +29,7 @@ public class ProductDAO {
 
         try (Connection con = getConnection();
              PreparedStatement ps = con.prepareStatement
-                     ("insert into product(productname,productprice,productquantity,productcolor,productavailability,categoryid) values(?,?,?,?,?,?)"))
+                     ("insert into product(productname,productprice,productquantity,productcolor,productavailability,categoryid,storeid,staffid) values(?,?,?,?,?,?,?,?)"))
         {
 
             ps.setString(1, pdt.getProductName());
@@ -38,6 +38,9 @@ public class ProductDAO {
             ps.setString(4, pdt.getProductColor());
             ps.setString(5, pdt.getProductAvailability());
             ps.setInt(6, pdt.getCategoryID());
+            ps.setInt(7, pdt.getStoreID());
+            ps.setString(8, pdt.getStaffID());
+
 
             ps.executeUpdate();
         }
@@ -48,7 +51,7 @@ public class ProductDAO {
         
         public void updateProduct (Product pdt) throws SQLException {
         		try (Connection connection = getConnection();
-                    PreparedStatement ps = connection.prepareStatement("update product set productname=?,productprice=?,productquantity=?,productcolor=?,productavailability=?,categoryid=? where productid=?");) 
+                    PreparedStatement ps = connection.prepareStatement("update product set productname=?,productprice=?,productquantity=?,productcolor=?,productavailability=?,categoryid=?,storeid=?,staffid=? where productid=?");) 
 
             {
 
@@ -58,7 +61,9 @@ public class ProductDAO {
                 ps.setString(4, pdt.getProductColor());
                 ps.setString(5, pdt.getProductAvailability());
                 ps.setInt(6, pdt.getCategoryID());
-                ps.setInt(7, pdt.getProductID());
+                ps.setInt(7, pdt.getStoreID());
+                ps.setString(8, pdt.getStaffID());
+                ps.setInt(9, pdt.getProductID());
 
 
                 ps.executeUpdate();

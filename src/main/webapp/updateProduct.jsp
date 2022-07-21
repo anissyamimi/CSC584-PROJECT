@@ -25,6 +25,10 @@
 		<sql:query dataSource="${ic}" var="oc">
 		    SELECT * from category
 		</sql:query>
+		
+		<sql:query dataSource="${ic}" var="ab">
+		    SELECT * from store
+		</sql:query>
 
 		
       <section class="header"><!-- SIDEBAR -->
@@ -64,11 +68,12 @@
        <%
        stat = conn.createStatement();
        String u = request.getParameter("id");
-       String data = "select * from product join category using (categoryid) where productid='"+u+"'";
+       String data = "select * from product join category using (categoryid) join store using (storeid) where productid='"+u+"'";
        res = stat.executeQuery(data);
        while(res.next()){
        %>
 
+			<input type="hidden" name="staffid" value="<%=res.getString("staffid")%>">
 			<input type="hidden" name="id" value="<%=res.getInt("productid")%>">
             <label for="prodName">Product Name</label>
             <input type="text" id="prodName" name="productname" value="<%=res.getString("productname")%>"><br>
@@ -92,7 +97,16 @@
 			<c:forEach var="result" items="${oc.rows}">		
 			  <option value="${result.categoryid}">${result.categoryname}</option>
 			 </c:forEach>
+			</select><br>
+
+			<label for="cars">Store Name </label>
+			<select name="storeid">
+			  <option  selected hidden value="<%=res.getString("storeid")%>" ><%=res.getString("storename")%></option>
+			<c:forEach var="result" items="${ab.rows}">		
+			  <option value="${result.storeid}">${result.storename}</option>
+			 </c:forEach>
 			</select>
+
 			<div class="respond">
 	            <input type="hidden" name="action" value="updateProduct">
 	            <button class="btn">BACK</button>

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
@@ -18,7 +18,11 @@
                  password="f97a885181429218179ab9db94ff4fc6ab7ef611657375b7e35dad06697b711c"/>
 			
 		<sql:query dataSource="${ic}" var="oc">
-		    SELECT * from category
+		    SELECT * from category 
+		</sql:query>
+		
+		<sql:query dataSource="${ic}" var="ab">
+		    SELECT * from store 
 		</sql:query>
 	
     
@@ -58,10 +62,17 @@
 			  <option value="Not Available">Not Available</option>			  
 			</select><br>
 			
-			<label for="cars">Product Category</label>
+			<label for="product">Product Category</label>
 			<select name="categoryid">
 			<c:forEach var="result" items="${oc.rows}">		
 			  <option value="${result.categoryid}">${result.categoryname}</option>
+			 </c:forEach>
+			 </select><br>
+			 
+			 <label for="store">Store Name</label>
+			<select name="storeid">
+			<c:forEach var="result" items="${ab.rows}">		
+			  <option value="${result.storeid}">${result.storename}</option>
 			 </c:forEach>
 			</select>
             <input type="hidden" name="action" value="createProduct">

@@ -50,6 +50,8 @@
             <th id="prodQuantity">QUANTITY </th>
 	        <th id="prodCategory">CATEGORY </th>
             <th id="prodAvail">AVAILABILITY </th>
+            <th id="storeName">STORE NAME </th>
+
             <th id="action">ACTION </th>
         </tr>
         
@@ -67,7 +69,7 @@
        Class.forName(DB_DRIVER);
        con = DriverManager.getConnection(DB_CONNECTION,DB_USER,DB_PASSWORD);
        stat = con.createStatement();
-       String data = "select * from product join category using (categoryid)";
+       String data = "select * from product join category using (categoryid) join store using (storeid)";
        res = stat.executeQuery(data);
        while(res.next()){
        %>
@@ -80,6 +82,7 @@
             <td><%=res.getString("productquantity")%></td>
             <td><%=res.getString("categoryname")%></td>
             <td><%=res.getString("productavailability")%></td>
+            <td><%=res.getString("storename")%></td>
             <td class="action">
             <a href="updateProduct.jsp?id=<%=res.getString("productid")%>">&#128393;</a> 
             <form action="ProductHandler" method="post">
