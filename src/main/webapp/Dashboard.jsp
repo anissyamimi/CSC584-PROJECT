@@ -35,6 +35,7 @@
         <a href="Dashboard.jsp"><i class="fa-solid fa-magnifying-glass"></i>  DASHBOARD</a>
         <a href="categoryList.jsp"><i class="fa fa-tag"></i>   CATEGORY</a>
         <a href="productList.jsp"><i class="fas">&#xf49e;</i>   PRODUCT</a>
+        <a href="storeList.jsp"><i style='font-size:24px' class="fas">&#xf54f;</i>  STORE</a>
         <a href="staffInformation.jsp"><i class="fa-solid fa-user"></i>   PROFILE</a>
         <form method="get" action="StaffHandler" class="flg">
 		        <input type="hidden" name="action" value="logoutStaff">
@@ -114,13 +115,13 @@
     }
 
     .openbtn {
-        font-size: 40px;
-        cursor: pointer;
-        background-color: #111;
-        color: white;
-        padding: 5px 1320px 5px 10px;
-        border: none;
-    }
+	  font-size: 40px;
+	  cursor: pointer;
+	  background-color: #111;
+	  color: white;
+	  padding: 5px 1235px 5px 10px;
+	  border: none;
+	}
 
     .openbtn:hover {
         background-color: #444;
@@ -200,7 +201,7 @@
 	  padding-top: 10px;
 	  padding-bottom: 15px;
 	  padding-left: 22px;
-	  padding-right: 75px;
+	  padding-right: 80px;
 	  text-decoration: none;
 	  font-size: 30px;
 	  display: absolute;
@@ -212,10 +213,11 @@
 	  background-color: black;
 	  text-align: right;
 	  font-family: 'Times New Roman', serif;
+	  border:none;
 	}
 	
 	.flg {
-	  margin-top: 230px;
+	  margin-top: 160px;
 	}
     
     #Sidebar button:hover{
