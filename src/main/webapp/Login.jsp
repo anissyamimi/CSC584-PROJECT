@@ -12,12 +12,12 @@
 		<div class="header">LOGIN PAGE</div>
 		<form action="Dashboard.jsp" method="post">
 		<br><br>
-		<input type = "text" name="identificationnumber" placeholder = "Enter MYKAD Identification Number" required>
-		<input type="password" id="psw1" name="password1" placeholder= "Enter Password" required>
+		<input type = "text" name="staffID" placeholder = "Enter MYKAD Identification Number" required>
+		<input type="password" id="psw1" name="staffPassword" placeholder= "Enter Password" required>
 		<br><br><br><br><br>
 		<br><br><br>
 		<input type="hidden" name="action" value="loginStaff">
-		<input type="submit" value="Login" formaction=StaffHandler>
+               <button class=button type="submit" formaction=StaffHandler>Login</button>
 		
 		<br><br><a href="#">Forgot Password?</a>
 		</form>

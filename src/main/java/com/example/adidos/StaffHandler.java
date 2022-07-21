@@ -186,8 +186,8 @@ public class StaffHandler extends HttpServlet {
     	StringWriter sWriter = new StringWriter();
     	PrintWriter out = new PrintWriter(sWriter);
     	
-    	String username = request.getParameter("identificationnumber");
-    	String password = request.getParameter("password1"); 
+    	String username = request.getParameter("staffID");
+    	String password = request.getParameter("staffPassword"); 
     	
 	    Connection con = null;
     	try {
@@ -202,7 +202,7 @@ public class StaffHandler extends HttpServlet {
     	    ResultSet res=stmt.executeQuery(sql);
                 
                 while (res.next()){
-                    if(username.equals(res.getString("staffid")) && password.equals(res.getString("staffpassword")))
+                    if(username.equals(res.getString("staffID")) && password.equals(res.getString("staffPassword")))
                     {
                     	 Staff sta = new Staff();
                     	 

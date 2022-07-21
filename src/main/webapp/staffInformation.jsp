@@ -21,7 +21,7 @@
 	String DB_USER = "snzyojrrgmxiog";
 	String DB_PASSWORD ="f97a885181429218179ab9db94ff4fc6ab7ef611657375b7e35dad06697b711c";
 
-	String id=request.getParameter("id");
+	String id=(String)session.getAttribute("staffID");
     String sql= "SELECT * FROM staff WHERE staffID='"+ id +"'" ;
     Connection con=DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
     Statement stmt=con.createStatement();
@@ -48,47 +48,47 @@
 	<div class='center'>
 	<div class="h">STAFF INFORMATION</div>
       <form action="" name="myForm" method="post" onsubmit="return validation()">
+      <input type="hidden" name="id" value='<%=rs.getString("staffID")%>'/>
       		<br>
-            <label  for="staffName">Full Name</label><%=rs.getString("staffName") %>
-            
-            <br><br>
-         	<label for="idno">Identification Number</label><%=rs.getString("staffID") %>
-			
-			<br><br>
-			<label for="phoneno">Phone Number</label><%=rs.getString("staffPhone") %>
-			
-			<br><br>
-			<label for="address">Address</label><%=rs.getString("staffAddress") %>
-			
-			<br><br>
-			<label for="city">City</label><%=rs.getString("staffCity") %>
-			
-			<br><br>
-			<label for="postcode">Postcode</label><%=rs.getInt("staffPostcode") %>
-			
-			<label for="state">State</label><%=rs.getString("staffState") %>
+            <label  for="staffName">FULL NAME: <%=rs.getString("staffName")%></label>
             
             <br>
-            <label for="email">Email</label><%=rs.getString("staffEmail") %>
-			
-			<br><br>
-			<label for="birthday">Birth Date</label><%=rs.getDate("staffDate") %>
-	  		
-	  		<br><br>
-			<label for="gender" class="gender">Gender</label><%=rs.getString("staffGender") %>
-			
-			<br><br><br>
-			<label for="MaritalStatus">Marital Status</label><%=rs.getString("staffMaritalStatus") %>
+         	<label for="idno">IDENTIFICATION NUMBER: <%=rs.getString("staffID")%></label>
 			
 			<br>
-			<label  for="race">Race</label><%=rs.getString("staffRace") %>
+			<label for="phoneno">PHONE NUMBER: <%=rs.getString("staffPhone")%></label>
+			
+			<br>
+			<label for="address">ADDRESS: <%=rs.getString("staffAddress")%></label>
+			
+			<br>
+			<label for="city">CITY: <%=rs.getString("staffCity")%></label>
+			
+			<br>
+			<label for="postcode">POSTCODE: <%=rs.getInt("staffPostcode")%></label>
+			
+			<br>
+			<label for="state">STATE: <%=rs.getString("staffState")%></label>
+            
+            <br>
+            <label for="email">EMAIL: <%=rs.getString("staffEmail")%></label>
+			
+			<br>
+			<label for="birthday">BIRTHDATE: <%=rs.getString("staffBirthDate")%></label>
 	  		
-	  		<br><br>
-	  		<label for="nationality">Nationality</label><%=rs.getString("staffNationality") %>
+	  		<br>
+			<label for="gender" class="gender">GENDER: <%=rs.getString("staffGender")%></label>
+			
+			<br>
+			<label for="MaritalStatus">MARITAL STATUS: <%=rs.getString("staffMaritalStatus")%></label>
+			
+			<br>
+			<label  for="race">RACE: <%=rs.getString("staffRace")%></label>
 	  		
-	  		<br><br>
-	  		<label for="religion">Religion</label><%=rs.getString("staffReligion") %>
+	  		<br>
+	  		<label for="nationality">NATIONALITY: <%=rs.getString("staffNationality")%></label>
            
+            <br>
             <div class="h">CHANGE PASSWORD</div><br>
 			<label for="curpassword">CURRENT PASSWORD</label>
 			<input type="password" name="curpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Enter current password" required>
