@@ -19,7 +19,7 @@
 		<input type="hidden" name="action" value="loginStaff">
 		<button class=button type="submit" formaction=StaffHandler>Login</button>
 		
-		<br><br><a href="#">Forgot Password?</a>
+		<br><br>
 		</form>
 	  </div>
 	  <div class='whysign'>

@@ -77,7 +77,7 @@
 			<br>
 			<label for="state">STATE: </label>
 			<select name="staffState" id="staffState" class="forInput">
-	          <option  selected disabled hidden><%=rs.getString("staffState") %></option>
+	          <option  selected value="<%=rs.getString("staffState") %>"><%=rs.getString("staffState") %></option>
 	          <option value="Johor">Johor</option>
 	          <option value="Kedah">Kedah</option>
 	          <option value="Kelantan">Kelantan</option>
@@ -105,15 +105,15 @@
 	  		<br>
 			<label for="gender" class="gender">GENDER: </label>
 			<select name="staffGender">
-				  <option  selected disabled hidden><%=rs.getString("staffGender") %></option>
+				  <option  selected value="<%=rs.getString("staffGender") %>"><%=rs.getString("staffGender") %></option>
 				  <option value="MALE">MALE</option>
 				  <option value="FEMALE">FEMALE</option>
 				</select>
 			
 			<br>
 			<label for="MaritalStatus">MARITAL STATUS: </label>
-			<select name="staffMaritalstatus" id="staffMaritalstatus">
-	          <option  selected disabled hidden><%=rs.getString("staffMaritalStatus")%></option>
+			<select name="staffMaritalStatus" id="staffMaritalstatus">
+	          <option  selected value="<%=rs.getString("staffMaritalStatus")%>"><%=rs.getString("staffMaritalStatus")%></option>
 	          <option value="Single">Single</option>
 	          <option value="Married">Married</option>
 	          <option value="Divorced">Divorced</option>

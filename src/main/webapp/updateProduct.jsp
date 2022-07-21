@@ -55,6 +55,7 @@
        while(res.next()){
        %>
 
+			<input type="hidden" name="id" value="<%=res.getInt("productid")%>">
             <label for="prodName">Product Name</label>
             <input type="text" id="prodName" name="productname" value="<%=res.getString("productname")%>"><br>
             <label for="prodPrice" id="prodPrice">Product Price</label>
@@ -62,32 +63,27 @@
             <label for="prodColor">Product Color </label>
             <input type="text" id="prodColor" name="productcolor" value="<%=res.getString("productcolor")%>"><br>
             <label for="prodQuantity">Product Quantity </label>
-            <input type="text" id="prodQuantity" name="productquantity" value="<%=res.getString("productquantity")%>"><br>
-            <label for="cars">Choose a car:</label>
+            <input type="text" id="prodQuantity" name="productquantity" value="<%=res.getInt("productquantity")%>"><br>
+            <label for="cars">Choose product availability:</label>
 
 			<select name="productavailability">
-			  <option  selected disabled hidden><%=res.getString("categorystatus")%></option>
-			  <option value="Available">Available</option>
-			  <option value="Not Available">Not Available</option>
+			  <option  selected value="<%=res.getString("categorystatus")%>"><%=res.getString("categorystatus")%></option>
+			  <option value="ACTIVE">Active</option>
 			</select>
 			
 			<select name="categoryid">
-			  <option  selected disabled hidden><%=res.getString("categoryname")%></option>
+			  <option  selected disabled hidden value="<%=res.getString("categoryname")%>" ><%=res.getString("categoryname")%></option>
 			  <option value="1">LEBOVO</option>
-			  <option value="2">DP</option>
+			  <option value="3">DP</option>
 			</select>
             <input type="hidden" name="action" value="updateProduct">
             <button class="btn">BACK</button>
-            <button class="btn">CREATE PRODUCT</button>
+            <button class="btn">UPDATE PRODUCT</button>
         </form></div>
         
            	<%
             }
    			%>
-        <div class="respond">
-            <button class="btn">BACK</button>
-            <button class="btn">UPDATE PRODUCT</button>
-        </div>
     </body>
     
 <style>

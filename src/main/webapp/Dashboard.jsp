@@ -29,7 +29,7 @@
 <div id="myMain">
     <table style="width:100%">
         <tr class="dash">
-            <td>0<img src= "shoe.png" alt="shoe icon"><br>
+            <td>900<img src= "shoe.png" alt="shoe icon"><br>
                 <p>TOTAL PRODUCT</p></td>
             <td>0<img src= "statistic.png" alt="statistic icon"><br>
                 <p>TOTAL CATEGORY</p></td>
