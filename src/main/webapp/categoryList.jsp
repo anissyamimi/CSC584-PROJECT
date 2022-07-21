@@ -40,31 +40,30 @@
         <h2>CATEGORY</h2><br>
             <a href="createCategory.jsp" class="btn">CREATE CATEGORY</a><br><br>
 <br>
-            
             <div style="overflow-x:auto;">
             <table id="store" style="text-align: center;">
                 <tr>
-                  <th onclick="sortTable(0)" id="categoryID">CATEGORY ID <img src="filterW.png"></th>
-                  <th onclick="sortTable(1)" id="categoryName">CATEGORY NAME <img src="filterW.png"></th>
-                  <th onclick="sortTable(2)" id="categoryStatus">CATEGORY STATUS <img src="filterW.png"></th>
-                  <th>ACTION <img src="filterW.png"></th>
+                  <th onclick="sortTable(0)" id="categoryID">CATEGORY ID </th>
+                  <th onclick="sortTable(1)" id="categoryName">CATEGORY NAME </th>
+                  <th onclick="sortTable(2)" id="categoryStatus">CATEGORY STATUS </th>
+                  <th>ACTION </th>
                 </tr>
                 
                 <c:forEach var="result" items="${oc.rows}">
                 <tr>
                   <td class="categoryID"><c:out value="${result.categoryID}"/></td>
-                  <td class="categoryName"><c:out value="${result.categoryName}"/></td>
+                  <td class="categoryName" id="categoryName"><c:out value="${result.categoryName}"/></td>
                   <td class="categoryStatus"><c:out value="${result.categoryStatus}"/></td>
                   
-                  <td>
+                  <td class="action">
 					<form method="post">
-						<button  class="action" type="update" formaction="updateCategory.jsp?id=${result.categoryID}">&#128393;
+						<button  class="action1" type="update" formaction="updateCategory.jsp?id=${result.categoryID}">&#128393;
 						</button>
 					</form>
 					<form method="post">
 						<input type="hidden" name="categoryID" value="${result.categoryID}">
 						<input type="hidden" name="action" value="deleteCategory">
-						<button  class="action" type="delete" formaction="CategoryHandler" onclick="return confirm('Are you sure you want to delete?')">&#128465;</button>
+						<button  class="action1" type="delete" formaction="CategoryHandler" onclick="return confirm('Are you sure you want to delete?')">&#128465;</button>
 					</form>
 				</td>
                 </tr>
@@ -148,35 +147,40 @@
 	}
 	
 	table, td, th {
-	    border: 2px solid white;
-	    padding: 5px;
-	}
-	
-	table {
-	    width: 100%;
-	    border-collapse: collapse;
-	    max-width: 1000px;
-	    margin-top: 35px;
-	    margin-left: auto;
-	    margin-right: auto;
-	}
-	
-	#store tr:nth-child(even) {
-	    background-color: #a7a7a7;
-	}
-	
-	#store tr:nth-child(odd) {
-	    background-color: #dfdddd;
-	}
-	
-	#store th {
-	  padding-top: 12px;
-	  padding-bottom: 12px;
-	  text-align: center;
-	  background-color: black;
-	  color: white;
-	}
-	
+        border: 2px solid white;
+        padding: 5px;
+        word-wrap: break-word;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        max-width: 900px;
+        margin-top: 35px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    td {
+    	text-align: left;
+    }
+
+    #store tr:nth-child(even) {
+        background-color: #a7a7a7;
+    }
+
+    #store tr:nth-child(odd) {
+        background-color: #dfdddd;
+    }
+
+    #store th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: center;
+        background-color: black;
+        color: white;
+    }
+    
 	img {
 	    width: 20px;
 	    display: inline;
@@ -319,6 +323,7 @@
 	  margin-right: 0px;
 	  background-color: black;
 	  text-align: right;
+	  font-family: 'Times New Roman', serif;
 	}
 	
 	.flg {
@@ -384,10 +389,6 @@
 
 </style>
 <script>
-    function togglePopup() {
-        document.getElementById("popup").classList.toggle("active");
-    }
-
     function openNav() {
       document.getElementById("Sidebar").style.width = "275px";
       document.getElementById("myMain").style.marginLeft = "275px";

@@ -38,8 +38,10 @@
             <a href="categoryList.jsp"><i class="fa fa-tag"></i>   CATEGORY</a>
             <a href="productList.jsp"><i class="fas">&#xf49e;</i>   PRODUCT</a>
             <a href="staffInformation.jsp"><i class="fa-solid fa-user"></i>   PROFILE</a>
-            <a href="MainPage.jsp" onclick="return confirm('Do you want to log out ?');"><i class="fa-solid fa-right-from-bracket"></i>   LOGOUT</a>
-
+            <form method="get" action="StaffHandler" class="flg">
+		        <input type="hidden" name="action" value="logoutStaff">
+		        <button type="submit" class="lg"  value="LOGOUT" onclick="return confirm('Do you want to log out ?');"><i class="fa fa-right-from-bracket"></i>   LOG OUT</button>
+		    </form>
         </div></section><!-- SIDEBAR -->
         
        <%
@@ -287,6 +289,33 @@
   		position: absolute;
   		right: 370px;
   }
+  
+  .lg {
+	  padding-top: 10px;
+	  padding-bottom: 15px;
+	  padding-left: 22px;
+	  padding-right: 75px;
+	  text-decoration: none;
+	  font-size: 30px;
+	  display: absolute;
+	  transition: 0.3s;
+	  cursor: pointer;
+	  color: white;
+	  height: 60px;
+	  margin-right: 0px;
+	  background-color: black;
+	  text-align: right;
+	  font-family: 'Times New Roman', serif;
+	}
+	
+	.flg {
+	  margin-top: 230px;
+	}
+    
+    #Sidebar button:hover{
+  		background-color: #404040;
+  		color: white;
+  	}
   
 </style>
 <script>

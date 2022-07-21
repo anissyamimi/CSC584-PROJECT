@@ -36,10 +36,10 @@
         <a href="categoryList.jsp"><i class="fa fa-tag"></i>   CATEGORY</a>
         <a href="productList.jsp"><i class="fas">&#xf49e;</i>   PRODUCT</a>
         <a href="staffInformation.jsp"><i class="fa-solid fa-user"></i>   PROFILE</a>
-        <form method="get" action="StaffHandler">
-        <input type="hidden" name="action" value="logoutStaff">
-        <input type="submit" value="LOGOUT" onclick="return confirm('Do you want to log out ?');"><i class="fa-solid fa-right-from-bracket"></i>  
-        </form>
+        <form method="get" action="StaffHandler" class="flg">
+		        <input type="hidden" name="action" value="logoutStaff">
+		        <button type="submit" class="lg"  value="LOGOUT" onclick="return confirm('Do you want to log out ?');"><i class="fa fa-right-from-bracket"></i>   LOG OUT</button>
+		</form>
         
     </div>
     </section><!-- SIDEBAR -->
@@ -47,7 +47,7 @@
 	    <table style="width:100%">
 	        <tr class="dash">
 	        <c:forEach var="result" items="${oc.rows}">
-	            <td><c:out value="${result.count}"/><img src= "shoe.png" alt="shoe icon"><br>
+	            <td><c:out value="${result.count}"/><img src= "laptop.png" alt="shoe icon"><br>
 	                <p>TOTAL PRODUCT</p></td>
             </c:forEach>
             <c:forEach var="result" items="${oc2.rows}">
@@ -195,6 +195,33 @@
         padding-right: auto;
         padding-top: 10px;
     }
+    
+    .lg {
+	  padding-top: 10px;
+	  padding-bottom: 15px;
+	  padding-left: 22px;
+	  padding-right: 75px;
+	  text-decoration: none;
+	  font-size: 30px;
+	  display: absolute;
+	  transition: 0.3s;
+	  cursor: pointer;
+	  color: white;
+	  height: 60px;
+	  margin-right: 0px;
+	  background-color: black;
+	  text-align: right;
+	  font-family: 'Times New Roman', serif;
+	}
+	
+	.flg {
+	  margin-top: 230px;
+	}
+    
+    #Sidebar button:hover{
+  		background-color: #404040;
+  		color: white;
+  	}
 
 </style>
 <script>

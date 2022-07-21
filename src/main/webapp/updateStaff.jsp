@@ -39,9 +39,11 @@
 				<a href="Dashboard.jsp"><i class="fa-solid fa-magnifying-glass"></i>  DASHBOARD</a>
 				<a href="categoryList.jsp"><i class="fa fa-tag"></i>   CATEGORY</a>
 				<a href="productList.jsp"><i class="fas">&#xf49e;</i>   PRODUCT</a>
-				<a href="staffInformation.jsp"><i class="fa-solid fa-user"></i>   PROFILE</a>
-				<a href="MainPage.jsp" onclick="return confirm('Do you want to log out ?');"><i class="fa-solid fa-right-from-bracket"></i>   LOGOUT</a>
-
+                <a href="staffInformation.jsp"><i class="fa-solid fa-user"></i>   PROFILE</a>
+				<form method="get" action="StaffHandler" class="flg">
+			        <input type="hidden" name="action" value="logoutStaff">
+			        <button type="submit" class="lg"  value="LOGOUT" onclick="return confirm('Do you want to log out ?');"><i class="fa fa-right-from-bracket"></i>   LOG OUT</button>
+			    </form>
 			</div></section><!-- SIDEBAR -->
 	
 	<div id="myMain">
@@ -51,31 +53,31 @@
       <input type="hidden" name="staffID" value='<%=rs.getString("staffID")%>'/>
       
       		<br>
-            <label  for="staffName">FULL NAME: </label>
+            <label  for="staffName">FULL NAME: <span>*</span></label>
             <input type="text" name="staffName" class="forInput" value='<%=rs.getString("staffName") %>'>
             
             <br>
          	<label for="idno" >IDENTIFICATION NUMBER: <%=rs.getString("staffID")%></label>
 			
 			<br>
-			<label for="phoneno">PHONE NUMBER: </label>
+			<label for="phoneno">PHONE NUMBER: <span>*</span></label>
 			<input type="text" name="staffPhone" class="forInput" value='<%=rs.getString("staffPhone") %>'>
 			
 			<br>
-			<label for="address">ADDRESS: </label>
+			<label for="address">ADDRESS: <span>*</span></label>
 			<input type="text" name="staffAddress" class="forInput" value='<%=rs.getString("staffAddress") %>'>
 			
 			
 			<br>
-			<label for="city">CITY: </label>
+			<label for="city">CITY: <span>*</span></label>
 			<input type="text" name="staffCity" class="forInput" value='<%=rs.getString("staffCity") %>'>
 			
 			<br>
-			<label for="postcode">POSTCODE: </label>
+			<label for="postcode">POSTCODE: <span>*</span></label>
 			<input type="text" name="staffPostcode" class="forInput" value='<%=rs.getString("staffPostcode") %>'>
 			
 			<br>
-			<label for="state">STATE: </label>
+			<label for="state">STATE: <span>*</span></label>
 			<select name="staffState" id="staffState" class="forInput">
 	          <option  selected hidden value="<%=rs.getString("staffState") %>"><%=rs.getString("staffState") %></option>
 	          <option value="Johor">Johor</option>
@@ -95,15 +97,15 @@
 	     	</select>
             
             <br>
-            <label for="email">EMAIL: </label>
+            <label for="email">EMAIL: <span>*</span></label>
             <input type="text" name="staffEmail" class="forInput" value='<%=rs.getString("staffEmail") %>'>
 			
 			<br>
-			<label for="birthday">BIRTHDATE: </label>
+			<label for="birthday">BIRTHDATE: <span>*</span></label>
 			<input type="date" name="staffBirthDate" class="forInput" value='<%=rs.getString("staffBirthDate") %>'>
 
 	  		<br>
-			<label for="gender" class="gender">GENDER: </label>
+			<label for="gender" class="gender">GENDER: <span>*</span></label>
 			<select name="staffGender">
 				  <option  selected hidden value="<%=rs.getString("staffGender") %>"><%=rs.getString("staffGender") %></option>
 				  <option value="MALE">MALE</option>
@@ -111,7 +113,7 @@
 				</select>
 			
 			<br>
-			<label for="MaritalStatus">MARITAL STATUS: </label>
+			<label for="MaritalStatus">MARITAL STATUS: <span>*</span></label>
 			<select name="staffMaritalStatus" id="staffMaritalstatus">
 	          <option  selected hidden value="<%=rs.getString("staffMaritalStatus")%>"><%=rs.getString("staffMaritalStatus")%></option>
 	          <option value="Single">Single</option>
@@ -121,11 +123,11 @@
 	     	</select>
 			
 			<br>
-			<label  for="race">RACE: </label>
+			<label  for="race">RACE: <span>*</span></label>
 			<input type="text" name="staffRace" class="forInput" value='<%=rs.getString("staffRace") %>'>
 	  		
 	  		<br>
-	  		<label for="nationality">NATIONALITY: </label>
+	  		<label for="nationality">NATIONALITY: <span>*</span></label>
 	  		<input type="text" name="staffNationality" class="forInput" value='<%=rs.getString("staffNationality") %>'>
            
             <br> 
@@ -160,8 +162,11 @@
       padding-top: 60px;
    }
    
-   span{
-	color: red;}
+   span {
+	color: red;
+	font-weight: bold;
+	font-size: 20px;
+	}
     
   .ad {
       color: white;
@@ -239,14 +244,6 @@
 	border-radius: 5px 5px 5px 5px;
 	text-align: center;
 	}
-	
-span {
-	color: white;
-	font-weight: bold;
-	font-size: 40px;
-	position: absolute;
-	margin-top: 25px;
-	}
 
 .btn {
 	background-color: #000000;
@@ -302,6 +299,33 @@ input[type=text], input[type=date], input[type=password], select, radio{
 	text-align: justify;
 	margin-bottom: 50px;
 	}
+	
+	.lg {
+	  padding-top: 10px;
+	  padding-bottom: 15px;
+	  padding-left: 22px;
+	  padding-right: 75px;
+	  text-decoration: none;
+	  font-size: 30px;
+	  display: absolute;
+	  transition: 0.3s;
+	  cursor: pointer;
+	  color: white;
+	  height: 60px;
+	  margin-right: 0px;
+	  background-color: black;
+	  text-align: right;
+	  font-family: 'Times New Roman', serif;
+	}
+	
+	.flg {
+	  margin-top: 230px;
+	}
+    
+    #Sidebar button:hover{
+  		background-color: #404040;
+  		color: white;
+  	}
 </style>
 <script>
     function openNav() {

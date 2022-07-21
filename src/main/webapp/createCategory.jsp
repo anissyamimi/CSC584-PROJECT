@@ -175,6 +175,7 @@
 	  margin-right: 0px;
 	  background-color: black;
 	  text-align: right;
+	  font-family: 'Times New Roman', serif;
 	}
 	
 	.flg {
