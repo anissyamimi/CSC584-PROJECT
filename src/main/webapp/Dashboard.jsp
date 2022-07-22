@@ -55,9 +55,14 @@
 	            <td><c:out value="${result.count}"/><img src= "statistic.png" alt="statistic icon"><br>
 	                <p>TOTAL CATEGORY</p></td>
              </c:forEach>
+             <c:forEach var="result" items="${oc2.rows}">
+	            <td><c:out value="${result.count}"/><img src= "store.png" alt="store icon"><br>
+	                <p>TOTAL STORE</p></td>
+             </c:forEach>
 	        </tr>
 	        <tr class="more">
 	            <td>MORE INFO<a href="productList.jsp">&#10142;</a></td>
+	            <td>MORE INFO<a href="categoryList.jsp">&#10142;</a></td>
 	            <td>MORE INFO<a href="categoryList.jsp">&#10142;</a></td>
 	        </tr>
 	    </table>
