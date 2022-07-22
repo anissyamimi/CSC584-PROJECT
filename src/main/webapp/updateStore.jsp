@@ -77,32 +77,32 @@
   }
   
   h2 {
-      margin-top: 40px;
-      margin-left: 10px;
-      font-size: 30px;
+      text-align: center;
+      font-size: 40px;
+      margin-top: 30px;
+      margin-bottom: 10px;
   }
   
   label {
       font-size: 20px;
       font-weight: bold;
       margin-left: 50px;
-  }
-  
-  .status {
-      margin-right: 80px;
+      margin-top: 15px;
+      display: inline-block;
+      width: 240px;
   }
   
   input[type=text], select {
       width: 50%;
-      padding: 10px 20px;
-      margin: 15px 65px;
-      box-sizing: border-box;
-      border: 2px solid black;
-      border-radius: 4px;
-      -webkit-transition: 0.2s;
-      transition: 0.2s;
-      outline: none;
-      text-transform: uppercase;
+     padding: 5px 5px;
+     box-sizing: border-box;
+     border: 2px solid black;
+     border-radius: 4px;
+     -webkit-transition: 0.2s;
+     transition: 0.2s;
+     outline: none;
+     text-transform: uppercase;
+     background-color: #dfdddd;
   }
   
   input[type=text]:focus, select:focus {

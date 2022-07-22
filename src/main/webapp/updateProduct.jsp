@@ -125,9 +125,10 @@
   }
   
   h2 {
-      margin-top: 40px;
-      margin-left: 10px;
-      font-size: 30px;
+      text-align: center;
+      font-size: 40px;
+      margin-top: 30px;
+      margin-bottom: 10px;
   }
   
   label {
