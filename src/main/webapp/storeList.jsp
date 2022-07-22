@@ -38,7 +38,7 @@
 		        </form>
             </div></section><!-- SIDEBAR -->
     <div id="myMain">
-        <h2>CATEGORY LIST</h2><br>
+        <h2>STORE LIST</h2><br>
             <a href="createStore.jsp" class="btn">CREATE STORE</a><br><br>
 <br>
             <div style="overflow-x:auto;">
