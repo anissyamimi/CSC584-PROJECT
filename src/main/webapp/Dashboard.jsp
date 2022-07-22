@@ -24,6 +24,9 @@
 		<sql:query dataSource="${ic}" var="oc2">
  			SELECT COUNT (categoryID) FROM category
 		</sql:query>
+		<sql:query dataSource="${ic}" var="oc3">
+ 			SELECT COUNT (storeID) FROM store
+		</sql:query>
 				   
 	<section class="header"><!-- SIDEBAR -->
     <div id="main">
@@ -55,7 +58,7 @@
 	            <td><c:out value="${result.count}"/><img src= "statistic.png" alt="statistic icon"><br>
 	                <p>TOTAL CATEGORY</p></td>
              </c:forEach>
-             <c:forEach var="result" items="${oc2.rows}">
+             <c:forEach var="result" items="${oc3.rows}">
 	            <td><c:out value="${result.count}"/><img src= "store.png" alt="store icon"><br>
 	                <p>TOTAL STORE</p></td>
              </c:forEach>
