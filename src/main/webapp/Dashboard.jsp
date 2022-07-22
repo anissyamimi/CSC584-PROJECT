@@ -63,7 +63,7 @@
 	        <tr class="more">
 	            <td>MORE INFO<a href="productList.jsp">&#10142;</a></td>
 	            <td>MORE INFO<a href="categoryList.jsp">&#10142;</a></td>
-	            <td>MORE INFO<a href="categoryList.jsp">&#10142;</a></td>
+	            <td>MORE INFO<a href="storeList.jsp">&#10142;</a></td>
 	        </tr>
 	    </table>
 	</div>
