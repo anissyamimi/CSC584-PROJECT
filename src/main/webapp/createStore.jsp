@@ -44,7 +44,7 @@
         	<button class="btn">BACK</button>
         	
 			<input type="hidden" name="action" value="createStore">
-    		<button type="submit" class="btn" name="submit" formaction="StoreHandler">CREATE CATEGORY</button><br><br>
+    		<button type="submit" class="btn" name="submit" formaction="StoreHandler">CREATE STORE</button><br><br>
         </div>
         </form>
         </div>
